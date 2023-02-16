@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mrra_healthy"
+        android:icon="@drawable/ic_healthy"
+        android:title="@string/health" />
+
+    <item
+        android:id="@+id/mrra_connect"
+        android:icon="@drawable/ic_connect"
+        android:title="@string/connection" />
+
+    <item
+        android:id="@+id/mrra_mrra"
+        android:icon="@drawable/ic_mrra"
+        android:title="@string/mrra" />
+
+    <item
+        android:id="@+id/mrra_me"
+        android:icon="@drawable/ic_me"
+        android:title="@string/me" />
+
+</menu>

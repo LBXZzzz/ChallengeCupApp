@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_mrra"
+    app:startDestination="@id/mrra_connect">
+
+    <fragment
+        android:id="@+id/mrra_healthy"
+        android:name="cn.mrra.android.ui.fragment.HealthFragment"
+        android:label="healthy" />
+
+    <fragment
+        android:id="@+id/mrra_connect"
+        android:name="cn.mrra.android.ui.fragment.ConnectionFragment"
+        android:label="connect" />
+
+    <fragment
+        android:id="@+id/mrra_mrra"
+        android:name="cn.mrra.android.ui.fragment.MRRAFragment"
+        android:label="mrra" />
+
+    <fragment
+        android:id="@+id/mrra_me"
+        android:name="cn.mrra.android.ui.fragment.MeFragment"
+        android:label="me" />
+
+</navigation>

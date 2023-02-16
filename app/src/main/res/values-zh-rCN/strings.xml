@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MRRA</string>
+
+    <string name="mrra">MRRA</string>
+    <string name="connection">连接</string>
+    <string name="health">健康</string>
+    <string name="me">我的</string>
+
+    <string name="bluetooth">蓝牙</string>
+    <string name="scanning">正在扫描</string>
+    <string name="stop_scanning">停止扫描</string>
+    <string name="status_unknown">未知状态</string>
+    <string name="status_turning_on">正在开启</string>
+    <string name="status_on">已开启</string>
+    <string name="status_turning_off">正在关闭</string>
+    <string name="status_off">已关闭</string>
+    <string name="status_error">错误</string>
+
+    <string name="mrra_not_connected_des">未连接设备，请前往“连接”模块中进行连接</string>
+    <string name="permission_des">未授予蓝牙或定位权限，无法使用本应用</string>
+</resources>

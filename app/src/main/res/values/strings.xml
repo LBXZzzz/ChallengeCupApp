@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MRRA</string>
+
+    <string name="mrra">MRRA</string>
+    <string name="connection">Connection</string>
+    <string name="health">Health</string>
+    <string name="me">Me</string>
+
+    <string name="bluetooth">Bluetooth</string>
+    <string name="scanning">Scanning</string>
+    <string name="stop_scanning">Stop scanning</string>
+    <string name="status_unknown">Unknown</string>
+    <string name="status_turning_on">Turning ON</string>
+    <string name="status_on">ON</string>
+    <string name="status_turning_off">Turning OFF</string>
+    <string name="status_off">OFF</string>
+    <string name="status_error">Error</string>
+
+    <string name="mrra_not_connected_des">No device is connected, please go to the "Connection" module to connect.</string>
+    <string name="permission_des">The application cannot be used without Bluetooth or location permission.</string>
+</resources>

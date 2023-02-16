@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MRRA" parent="Theme.Material3.DynamicColors.Light.Rikka">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">?android:colorBackground</item>
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/light_theme_light_mode</item>-->
+<!--        <item name="colorPrimaryVariant">@color/dark_theme_light_mode</item>-->
+<!--        <item name="colorOnPrimary">@color/soft_white</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">@color/light_theme_dark_mode</item>-->
+<!--        <item name="colorSecondaryVariant">@color/dark_theme_dark_mode</item>-->
+<!--        <item name="colorOnSecondary">@color/black</item>-->
+<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor">@color/soft_white</item>-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorOnBackground">@color/soft_white</item>-->
+<!--        <item name="colorBackgroundFloating">@color/light_theme_light_white</item>-->
+    </style>
+</resources>

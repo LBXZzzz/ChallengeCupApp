@@ -1,18 +1,16 @@
 package cn.mrra.android.ui.activity
 
 import android.os.Bundle
-import cn.mrra.android.common.base.BaseActivity
+import cn.mrra.android.R
+import cn.mrra.android.common.base.SimpleActivity
 import cn.mrra.android.common.startActivity
 import cn.mrra.android.databinding.ActivityLauncherBinding
 
-class LauncherActivity : BaseActivity() {
+class LauncherActivity : SimpleActivity<ActivityLauncherBinding>() {
 
-    private lateinit var viewBinding: ActivityLauncherBinding
+    override val layoutId: Int = R.layout.activity_launcher
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewBinding = ActivityLauncherBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         startActivity<MRRAActivity>()
     }
 }

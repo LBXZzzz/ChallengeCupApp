@@ -17,8 +17,9 @@ object Dependencies {
         }
 
         object Navigation {
-            const val fragment = "androidx.navigation:navigation-fragment:2.5.2"
-            const val ui = "androidx.navigation:navigation-ui-ktx:2.5.2"
+            const val nav_version = "2.5.0-alpha03"
+            const val fragment = "androidx.navigation:navigation-fragment:$nav_version"
+            const val ui = "androidx.navigation:navigation-ui-ktx:$nav_version"
         }
     }
 

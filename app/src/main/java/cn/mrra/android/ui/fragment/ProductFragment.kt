@@ -3,11 +3,11 @@ package cn.mrra.android.ui.fragment
 import android.os.Bundle
 import cn.mrra.android.R
 import cn.mrra.android.common.base.SimpleFragment
-import cn.mrra.android.databinding.FragmentHealthBinding
+import cn.mrra.android.databinding.FragmentProductBinding
 
-class HealthFragment : SimpleFragment<FragmentHealthBinding>() {
+class ProductFragment : SimpleFragment<FragmentProductBinding>() {
 
-    override val layoutId: Int = R.layout.fragment_health
+    override val layoutId: Int = R.layout.fragment_product
 
     override fun onFragmentCreated(savedInstanceState: Bundle?) {
     }

@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:edgeToEdge="true"
-    tools:context=".ui.activity.MRRAActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_mrra_host"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:navGraph="@navigation/nav_mrra"
-        tools:layout="@layout/fragment_health" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:edgeToEdge="true"
+        tools:context=".ui.activity.MRRAActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_mrra_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fitsSystemWindowsInsets="bottom"
-        app:itemRippleColor="@color/white_transparent_0"
-        app:labelVisibilityMode="selected"
-        app:menu="@menu/menu_mrra_nav" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_mrra_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:navGraph="@navigation/nav_mrra"
+            tools:layout="@layout/fragment_health" />
 
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_mrra_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fitsSystemWindowsInsets="bottom"
+            app:itemRippleColor="@color/white_transparent_0"
+            app:labelVisibilityMode="selected"
+            app:menu="@menu/menu_mrra_nav" />
+
+    </LinearLayout>
+
+</layout>

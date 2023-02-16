@@ -8,13 +8,13 @@ import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import cn.mrra.android.R
-import cn.mrra.android.common.base.BaseActivity
+import cn.mrra.android.common.base.SimpleActivity
 import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.ActivityMrraBinding
 
-class MRRAActivity : BaseActivity() {
+class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
 
-    private lateinit var binding: ActivityMrraBinding
+    override val layoutId: Int = R.layout.activity_mrra
 
     @RequiresApi(Build.VERSION_CODES.S)
     private val permissions31 = arrayOf(
@@ -43,11 +43,7 @@ class MRRAActivity : BaseActivity() {
             initView()
         }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMrraBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             requestPermissionLauncher.launch(permissions31)
         } else {

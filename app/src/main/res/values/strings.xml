@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">MRRA</string>
 
-    <string name="mrra">MRRA</string>
-    <string name="connection">Connection</string>
     <string name="health">Health</string>
+    <string name="connection">Connection</string>
+    <string name="mrra">MRRA</string>
+    <string name="product">Product</string>
     <string name="me">Me</string>
 
     <string name="bluetooth">Bluetooth</string>

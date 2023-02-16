@@ -1,23 +1,15 @@
 package cn.mrra.android.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import cn.mrra.android.common.base.BaseFragment
+import cn.mrra.android.R
+import cn.mrra.android.common.base.SimpleFragment
 import cn.mrra.android.databinding.FragmentMeBinding
 
-class MeFragment : BaseFragment<FragmentMeBinding>() {
+class MeFragment : SimpleFragment<FragmentMeBinding>() {
 
-    override var _binding: FragmentMeBinding? = null
+    override val layoutId: Int = R.layout.fragment_me
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentMeBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun onFragmentCreated(savedInstanceState: Bundle?) {
     }
 
 }

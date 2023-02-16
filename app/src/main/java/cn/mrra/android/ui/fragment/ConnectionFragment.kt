@@ -1,9 +1,6 @@
 package cn.mrra.android.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,26 +8,21 @@ import cn.mrra.android.R
 import cn.mrra.android.ble.scan.LeManager
 import cn.mrra.android.ble.status.LeStatusReceiver
 import cn.mrra.android.ble.status.LeStatusReceiver.Companion.registerBluetoothStatusReceiver
-import cn.mrra.android.common.base.BaseFragment
+import cn.mrra.android.common.base.SimpleFragment
 import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.FragmentConnectionBinding
 import cn.mrra.android.ui.adapter.ConnectionListAdapter
 
-class ConnectionFragment : BaseFragment<FragmentConnectionBinding>() {
+class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
 
-    override var _binding: FragmentConnectionBinding? = null
+    override val layoutId: Int = R.layout.fragment_connection
 
     private lateinit var leManager: LeManager
 
     private lateinit var leStatusReceiver: LeStatusReceiver
 
     @Suppress("SetTextI18n")
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentConnectionBinding.inflate(inflater, container, false)
+    override fun onFragmentCreated(savedInstanceState: Bundle?) {
         leManager = LeManager(requireContext(), viewLifecycleOwner)
         with(binding) {
             swConnectionSwitch.isEnabled = false
@@ -97,7 +89,6 @@ class ConnectionFragment : BaseFragment<FragmentConnectionBinding>() {
                 srfConnectRefresh.isRefreshing = false
             }
         }
-        return binding.root
     }
 
     override fun onResume() {

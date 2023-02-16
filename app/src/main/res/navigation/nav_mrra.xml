@@ -20,6 +20,11 @@
         android:label="mrra" />
 
     <fragment
+        android:id="@+id/mrra_product"
+        android:name="cn.mrra.android.ui.fragment.ProductFragment"
+        android:label="product" />
+
+    <fragment
         android:id="@+id/mrra_me"
         android:name="cn.mrra.android.ui.fragment.MeFragment"
         android:label="me" />

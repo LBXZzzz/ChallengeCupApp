@@ -1,7 +1,6 @@
 package cn.mrra.android.ui.adapter
 
 import android.bluetooth.BluetoothDevice
-import android.bluetooth.le.ScanResult
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup

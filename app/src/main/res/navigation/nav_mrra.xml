@@ -15,6 +15,11 @@
         android:label="connect" />
 
     <fragment
+        android:id="@+id/mrra_product"
+        android:name="cn.mrra.android.ui.fragment.ProductFragment"
+        android:label="product" />
+
+    <fragment
         android:id="@+id/mrra_mrra"
         android:name="cn.mrra.android.ui.fragment.MRRAFragment"
         android:label="mrra" />

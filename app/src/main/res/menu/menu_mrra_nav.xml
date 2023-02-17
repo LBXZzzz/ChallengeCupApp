@@ -11,6 +11,11 @@
         android:title="@string/connection" />
 
     <item
+        android:id="@+id/mrra_product"
+        android:icon="@drawable/ic_product"
+        android:title="@string/product" />
+
+    <item
         android:id="@+id/mrra_mrra"
         android:icon="@drawable/ic_mrra"
         android:title="@string/mrra" />

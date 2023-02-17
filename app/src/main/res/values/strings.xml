@@ -5,6 +5,7 @@
     <string name="connection">Connection</string>
     <string name="health">Health</string>
     <string name="me">Me</string>
+    <string name="product">Product</string>
 
     <string name="bluetooth">Bluetooth</string>
     <string name="scanning">Scanning</string>

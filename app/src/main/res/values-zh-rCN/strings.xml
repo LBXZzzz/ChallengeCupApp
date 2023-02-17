@@ -5,6 +5,7 @@
     <string name="connection">连接</string>
     <string name="health">健康</string>
     <string name="me">我的</string>
+    <string name="product">产品</string>
 
     <string name="bluetooth">蓝牙</string>
     <string name="scanning">正在扫描</string>

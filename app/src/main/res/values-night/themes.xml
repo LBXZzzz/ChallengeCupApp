@@ -5,18 +5,13 @@
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/light_theme_dark_mode</item>-->
-<!--        <item name="colorPrimaryVariant">@color/dark_theme_dark_mode</item>-->
-<!--        <item name="colorOnPrimary">@color/soft_black</item>-->
-<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
-<!--        <item name="colorSecondary">@color/light_theme_light_mode</item>-->
-<!--        <item name="colorSecondaryVariant">@color/dark_theme_light_mode</item>-->
-<!--        <item name="colorOnSecondary">@color/black</item>-->
-<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
-<!--        <item name="android:statusBarColor">@color/soft_black</item>-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorOnBackground">@color/soft_black</item>-->
-<!--        <item name="colorBackgroundFloating">@color/dark_theme_light_black</item>-->
+
+        <item name="titleTextColor">@color/white</item>
+        <item name="itemTextColor">@color/soft_white</item>
+
+        <item name="colorPrimary">@color/light_theme_dark_mode</item>
+        <item name="colorPrimaryDark">@color/dark_theme_dark_mode</item>
+
+        <item name="backgroundColor">?android:colorBackground</item>
     </style>
 </resources>

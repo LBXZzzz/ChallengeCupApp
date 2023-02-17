@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import cn.mrra.android.common.base.appContext
 
 private var toast: Toast? = null
@@ -27,8 +28,22 @@ fun toastMsg(
     }
 }
 
+fun Context.restartApplication() {
+    // kill now application
+    android.os.Process.killProcess(android.os.Process.myPid())
+    packageManager.getLaunchIntentForPackage(packageName)?.let {
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(it)
+
+    }
+}
+
 inline fun <reified A : Activity> Context.startActivity(builder: Intent.() -> Unit = {}) {
     startActivity(Intent(this, A::class.java).apply(builder))
+}
+
+inline fun <reified A : Activity> Fragment.startActivity(builder: Intent.() -> Unit = {}) {
+    startActivity(Intent(requireContext(), A::class.java).apply(builder))
 }
 
 val Context.isDarkMode: Boolean

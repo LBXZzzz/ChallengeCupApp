@@ -27,8 +27,12 @@
         android:theme="@style/Theme.MRRA"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activity.MRRAActivity"
+            android:name=".ui.activity.SettingsActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.activity.MRRAActivity"
+            android:exported="false"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".ui.activity.LauncherActivity"
             android:exported="true"

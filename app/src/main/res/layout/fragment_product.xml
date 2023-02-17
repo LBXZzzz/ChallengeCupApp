@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         app:edgeToEdge="true"
         app:fitsSystemWindowsInsets="top"
-        tools:context=".ui.fragment.ProductFragment">
+        tools:context=".ui.fragment.MRRAFragment">
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,7 +1,9 @@
 package cn.mrra.android.common.base
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import androidx.annotation.CallSuper
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -57,6 +59,20 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> :
         initViewDataBinding()
         initViewModel()
         onActivityCreated(savedInstanceState)
+    }
+
+    @CallSuper
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        val action = intent?.action ?: return
+        when (action) {
+            ACTION_RECREATE -> {
+                recreate()
+            }
+            ACTION_FINISH -> {
+                finish()
+            }
+        }
     }
 
     /**

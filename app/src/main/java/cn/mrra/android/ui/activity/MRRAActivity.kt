@@ -61,4 +61,5 @@ class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.navMrraNav, navController)
     }
+
 }

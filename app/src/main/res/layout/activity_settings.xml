@@ -66,28 +66,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_setting_tip_en"
-                android:layout_marginTop="16dp"
+                android:layout_marginVertical="16dp"
                 android:gravity="center"
                 android:text="@string/settings_tip_zh"
                 android:textColor="?attr/itemTextColor"
                 android:textSize="18sp" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_setting_restart"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_setting_tip_zh"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_gray_ripple"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:paddingVertical="12dp"
-                android:text="@string/settings_click_to_restart"
-                android:textAllCaps="false"
-                android:textColor="?attr/titleTextColor"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                app:cardBackgroundColor="@color/gray_transparent_10"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_setting_restart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/bg_gray_ripple"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingVertical="10dp"
+                        android:text="@string/settings_click_to_restart"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/titleTextColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 

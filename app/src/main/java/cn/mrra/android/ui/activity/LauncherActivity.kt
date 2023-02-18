@@ -12,5 +12,6 @@ class LauncherActivity : SimpleActivity<ActivityLauncherBinding>() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         startActivity<MRRAActivity>()
+        finish()
     }
 }

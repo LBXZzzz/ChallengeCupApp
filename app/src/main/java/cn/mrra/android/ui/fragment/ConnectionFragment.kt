@@ -18,6 +18,7 @@ import cn.mrra.android.common.base.SimpleFragment
 import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.FragmentConnectionBinding
 import cn.mrra.android.databinding.ItemConnectionListBinding
+import cn.mrra.android.ui.fragment.mrra.targetLeDevice
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
@@ -137,9 +138,9 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         toastMsg("${it.state}")
                     } else {
                         val device = it.scanResult.device
-                        // 筛选未配对，类型不为未知的蓝牙设备
+                        // 筛选未配对，类型为 BLE 的蓝牙设备
                         if (device.bondState == BluetoothDevice.BOND_NONE
-                            && device.type != BluetoothDevice.DEVICE_TYPE_UNKNOWN
+                            && device.type == BluetoothDevice.DEVICE_TYPE_LE
                             && addressSet.add(device.address)
                         ) {
                             resultList.add(device)
@@ -157,9 +158,12 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
         override fun onBindViewHolder(holder: ConnectionViewHolder, position: Int) {
             val device = resultList[position]
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                holder.text(device.alias ?: device.name ?: device.address)
+                holder.text = device.alias ?: device.name ?: device.address
             } else {
-                holder.text(device.name ?: device.address)
+                holder.text = device.name ?: device.address
+            }
+            holder.binding.tvConnectItem.setOnClickListener {
+                targetLeDevice.value = device
             }
         }
 
@@ -182,11 +186,13 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                     false
                 )
         ) {
-            private var binding = ItemConnectionListBinding.bind(itemView)
+            val binding = ItemConnectionListBinding.bind(itemView)
 
-            fun text(text: String) {
-                binding.tvConnectItem.text = text
-            }
+            var text: CharSequence
+                get() = binding.tvConnectItem.text
+                set(value) {
+                    binding.tvConnectItem.text = value
+                }
         }
 
     }

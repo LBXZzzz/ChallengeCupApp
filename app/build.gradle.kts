@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -46,6 +47,9 @@ dependencies {
     implementation(Dependencies.AndroidX.core)
     implementation(Dependencies.AndroidX.Navigation.fragment)
     implementation(Dependencies.AndroidX.Navigation.ui)
+    kapt(Dependencies.AndroidX.Room.kapt)
+    implementation(Dependencies.AndroidX.Room.runtime)
+    implementation(Dependencies.AndroidX.Room.ktx)
     implementation(Dependencies.View.constraintLayout)
     implementation(Dependencies.RikkaX.appCompat)
     implementation(Dependencies.RikkaX.material)

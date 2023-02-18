@@ -1,5 +1,6 @@
 package cn.mrra.android.ui.fragment.mrra
 
+import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -13,6 +14,9 @@ import cn.mrra.android.ui.fragment.control.PassiveFragment
 import cn.mrra.android.ui.fragment.control.StopFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.flow.MutableStateFlow
+
+internal val targetLeDevice: MutableStateFlow<BluetoothDevice?> = MutableStateFlow(null)
 
 class ControlFragment : SimpleFragment<FragmentControlBinding>() {
 

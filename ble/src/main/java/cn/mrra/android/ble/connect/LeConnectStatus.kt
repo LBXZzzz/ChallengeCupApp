@@ -25,7 +25,7 @@ enum class LeConnectStatus {
     /**
      * 特征值过滤完成
      * */
-    CHARACTERISTIC_FILTER_COMPLETED,
+    CHARACTERISTIC_FILTER_SUCCESS,
 
     /**
      * 连接错误

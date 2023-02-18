@@ -27,7 +27,7 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardBackgroundColor="@color/gray_transparent_40"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
@@ -61,7 +61,7 @@
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardBackgroundColor="@color/gray_transparent_40"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
@@ -95,7 +95,7 @@
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardBackgroundColor="@color/gray_transparent_40"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
@@ -129,7 +129,7 @@
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardBackgroundColor="@color/gray_transparent_40"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
@@ -164,7 +164,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardBackgroundColor="@color/gray_transparent_40"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
@@ -207,7 +207,7 @@
                 android:layout_gravity="center|top"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="4dp"
-                app:cardBackgroundColor="@color/gray_transparent_10"
+                app:cardBackgroundColor="@color/gray_transparent_40"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp">
 

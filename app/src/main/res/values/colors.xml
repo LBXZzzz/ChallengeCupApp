@@ -42,5 +42,6 @@
     <color name="gray_transparent_20">#33646464</color>
     <color name="gray_transparent_10">#1A646464</color>
 
-
+    <color name="blue_transparent_80">#13227a</color>
+    <color name="blue_transparent_60">#003d66</color>
 </resources>

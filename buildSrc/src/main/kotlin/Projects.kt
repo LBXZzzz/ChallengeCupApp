@@ -68,4 +68,8 @@ object Dependencies {
         const val okhttp = "com.squareup.okhttp3:okhttp:5.0.0-alpha.10"
         const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
     }
+
+    object Banner{
+        const val banner="io.github.youth5201314:banner:2.2.2"
+    }
 }

@@ -26,12 +26,32 @@
     <string name="product_introduction_1">Paramedics monitored the training data of multiple patients remotely in real time.</string>
     <string name="product_introduction_2">Unlike the heavy, bulky traditional mechanical arm, we choose carbon fiber, ABS and other materials to achieve lightweight and nice strength. In addition, the material touched with the human body feels comfortable.</string>
     <string name="product_introduction_3">We use sliding mode impedance control/ based on improved reaching law, to achieve fast and stable trajectory. Structure design is more ergonomic.</string>
+    <string name="product_support_staff">Service</string>
+    <string name="product_shopping_bag">Bag</string>
+    <string name="product_contact_customer_service_to_purchase">Contact customer service to</string>
+    <string name="product_product_Introduction">Product Introduction</string>
+    <string name="product_about_us">About Us</string>
+    <string name="product_buy">Buy</string>
+    <string name="product_product_detail">Product Detail</string>
+    <string name="product_inventory">Inventory</string>
+    <string name="product_deliver_goods">Deliver Goods</string>
+    <string name="product_deliver_goods1">Delivery within 48 hours after payment</string>
+    <string name="product_money_sign">¥</string>
+    <string name="product_price">17000</string>
+    <string name="product_virtual_price">18888</string>
+    <string name="product_introduction_service">Free home installation services</string>
+    <string name="product_introduction_service1">One year free warranty</string>
+    <string name="product_name">MRRA intelligent upper limb rehabilitation robotic arm</string>
+    <string name="product_introduction">Upper wrist rehabilitation training  Multiple training modes  Multi-scenario use</string>
+    <string name="product_sold">Ninety-nine pieces have been sold</string>
+    <string name="product_share">Share</string>
 
     <string name="mrra_not_connected_des">No device is connected, please go to the "Connection" module to connect.</string>
     <string name="permission_des">The application cannot be used without Bluetooth or location permission.</string>
 
     <string name="me_settings">Settings</string>
     <string name="me_user">MRRA User</string>
+
     <string name="settings_lang">language</string>
     <string name="settings_en">English</string>
     <string name="settings_cn">简体中文</string>
@@ -41,5 +61,13 @@
     <string name="setting_change_language">Change the language to English?</string>
     <string name="setting_change_language_ok">OK</string>
     <string name="setting_change_language_cancel">Cancel</string>
+
+
+    <string name="team_introduction_0">The "MRRA" team was founded in Guangdong University of Technology</string>
+    <string name="team_introduction_1">This project is jointly developed by 11 students with different professional knowledge from the School of Mechanical and Electrical Engineering, Computer science, information technology, materials and Energy, Art and design, management and Foreign languages, including C language, C++, OpenCV developers, mechanical structure design and embedded personnel, etc. The team members are of high professional quality and have in-depth research in related fields</string>
+    <string name="team_introduction_2">Contact us: Guangdong University of Technology MRRA team</string>
+    <string name="team_introduction_3">Team Project Leader:Eryi Dong</string>
+    <string name="team_introduction_4">Contact :18177413701</string>
+    <string name="team_introduction_5">Address: No. 100, Huanxi Road, Guangzhou University, Xiaoguwei Street, Panyu District, Guangzhou City, Guangdong Province</string>
 
 </resources>

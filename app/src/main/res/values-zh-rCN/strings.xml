@@ -26,6 +26,25 @@
     <string name="product_introduction_1">医护人员可以远程实时检测多位患者的训练数据。</string>
     <string name="product_introduction_2">区别于传统机械臂笨重，我们产品内部选择碳纤维、ABS等材料，在保证强度的同时实现轻量化。并且，与人体接触部分的材料触感舒适，患者穿戴无压力。</string>
     <string name="product_introduction_3">本项目使用改进趋近律的滑模控制器，实现运动轨迹快速稳定。模块可伸缩，结构设计更符合人体工学。</string>
+    <string name="product_support_staff">客服人员</string>
+    <string name="product_shopping_bag">购物袋</string>
+    <string name="product_contact_customer_service_to_purchase">联系客服购买</string>
+    <string name="product_about_us">关于我们</string>
+    <string name="product_product_Introduction">产品介绍</string>
+    <string name="product_buy">买</string>
+    <string name="product_product_detail">商品详情</string>
+    <string name="product_inventory">库存数量：999</string>
+    <string name="product_deliver_goods">发货 上门安装</string>
+    <string name="product_deliver_goods1">付款后48小时内发货</string>
+    <string name="product_money_sign">¥</string>
+    <string name="product_price">17000</string>
+    <string name="product_virtual_price">18888</string>
+    <string name="product_introduction_service">上门安装服务</string>
+    <string name="product_introduction_service1">一年免费保修</string>
+    <string name="product_name">MRRA智能上肢康复机械臂</string>
+    <string name="product_introduction">上肢手腕康复训练  多种训练模式  多场景使用</string>
+    <string name="product_sold">已售99件</string>
+    <string name="product_share">分享</string>
 
     <string name="mrra_not_connected_des">未连接设备，请前往“连接”模块中进行连接</string>
     <string name="permission_des">未授予蓝牙或定位权限，无法使用本应用</string>
@@ -41,4 +60,11 @@
     <string name="setting_change_language">更换语言为简体中文？</string>
     <string name="setting_change_language_ok">好的</string>
     <string name="setting_change_language_cancel">取消</string>
+
+    <string name="team_introduction_0">“MRRA”团队成立于广东工业大学</string>
+    <string name="team_introduction_1">本项目由来自机电、计算机、信工、材能、艺术与设计、管理、外国语学院等11名拥有不同专业知识的学生共同开发，其中包括C语言、C++、OpenCV开发人员，及机械结构设计和嵌入式人员等，团队成员专业素质高，在相关领域均有较为深入研究</string>
+    <string name="team_introduction_2">联系我们:广东工业大学MRRA团队</string>
+    <string name="team_introduction_3">团队项目负责人:董二谊</string>
+    <string name="team_introduction_4">联系方式:18177413701</string>
+    <string name="team_introduction_5">联系地址:广东省广州市番禺区小谷围街广州大学城外环西路100号</string>
 </resources>

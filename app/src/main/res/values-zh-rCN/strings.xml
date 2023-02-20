@@ -67,4 +67,8 @@
     <string name="team_introduction_3">团队项目负责人:董二谊</string>
     <string name="team_introduction_4">联系方式:18177413701</string>
     <string name="team_introduction_5">联系地址:广东省广州市番禺区小谷围街广州大学城外环西路100号</string>
+
+    <string name="health_title">健康</string>
+    <string name="health_training_record">训练记录</string>
+    <string name="health_training_commend">课程推荐</string>
 </resources>

@@ -70,4 +70,8 @@
     <string name="team_introduction_4">Contact :18177413701</string>
     <string name="team_introduction_5">Address: No. 100, Huanxi Road, Guangzhou University, Xiaoguwei Street, Panyu District, Guangzhou City, Guangdong Province</string>
 
+    <string name="health_title">Health</string>
+    <string name="health_training_record">Training record</string>
+    <string name="health_training_commend">Training commend</string>
+
 </resources>

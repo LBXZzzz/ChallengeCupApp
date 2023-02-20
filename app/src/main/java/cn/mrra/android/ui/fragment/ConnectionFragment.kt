@@ -1,9 +1,11 @@
 package cn.mrra.android.ui.fragment
 
 import android.bluetooth.BluetoothDevice
+import cn.mrra.android.common.startActivity
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -14,11 +16,13 @@ import cn.mrra.android.ble.scan.LeManager
 import cn.mrra.android.ble.scan.LeScanResult
 import cn.mrra.android.ble.status.LeStatusReceiver
 import cn.mrra.android.ble.status.LeStatusReceiver.Companion.registerBluetoothStatusReceiver
+import cn.mrra.android.common.base.ACTION_NAVIGATE
 import cn.mrra.android.common.base.SimpleFragment
 import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.FragmentConnectionBinding
 import cn.mrra.android.databinding.ItemConnectionListBinding
-import cn.mrra.android.ui.fragment.mrra.targetLeDevice
+import cn.mrra.android.mrra.MRRA
+import cn.mrra.android.ui.activity.MRRAActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
@@ -30,6 +34,8 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
     private lateinit var leManager: LeManager
 
     private lateinit var leStatusReceiver: LeStatusReceiver
+
+    private lateinit var adapter: ConnectionListAdapter
 
     @Suppress("SetTextI18n")
     override fun onFragmentCreated(savedInstanceState: Bundle?) {
@@ -63,6 +69,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_on)}"
                 }
                 turningOff {
+                    adapter.clearResult()
                     swConnectionSwitch.run {
                         isChecked = false
                         isEnabled = false
@@ -71,6 +78,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_turning_off)}"
                 }
                 off {
+                    adapter.clearResult()
                     swConnectionSwitch.run {
                         isChecked = false
                         isEnabled = true
@@ -79,6 +87,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_off)}"
                 }
                 error {
+                    adapter.clearResult()
                     swConnectionSwitch.run {
                         isChecked = true
                         isEnabled = true
@@ -89,8 +98,15 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
             }
             rvConnectionList.layoutManager = LinearLayoutManager(requireContext())
                 .apply { orientation = LinearLayoutManager.VERTICAL }
-            val adapter = ConnectionListAdapter(
+            adapter = ConnectionListAdapter(
                 leManager.leScanResult,
+                {
+                    startActivity<MRRAActivity> {
+                        action = ACTION_NAVIGATE
+                        putExtra("id", R.id.mrra_mrra)
+                    }
+                    MRRA.INSTANCE.controller.connectLeDevice(it)
+                },
                 lifecycleScope
             )
             rvConnectionList.adapter = adapter
@@ -125,6 +141,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
     @Suppress("MissingPermission")
     class ConnectionListAdapter(
         private val resultFlow: SharedFlow<LeScanResult>,
+        private val onClick: (BluetoothDevice) -> Unit,
         coroutineScope: CoroutineScope
     ) : RecyclerView.Adapter<ConnectionListAdapter.ConnectionViewHolder>() {
 
@@ -149,6 +166,13 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                     }
                 }
             }
+            coroutineScope.launch {
+                MRRA.INSTANCE.controller.leDevice.collect {
+                    if (it != null && addressSet.contains(it.address)) {
+                        notifyItemChanged(resultList.indexOf(it))
+                    }
+                }
+            }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConnectionViewHolder {
@@ -162,8 +186,14 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
             } else {
                 holder.text = device.name ?: device.address
             }
+            holder.binding.ivConnectConnect.visibility =
+                if (MRRA.INSTANCE.controller.leDevice.value == device) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
             holder.binding.tvConnectItem.setOnClickListener {
-                targetLeDevice.value = device
+                onClick(device)
             }
         }
 

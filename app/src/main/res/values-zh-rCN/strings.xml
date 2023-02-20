@@ -30,8 +30,10 @@
     <string name="mrra_control_angle_1_text">肩前屈和肩后伸角度</string>
     <string name="mrra_control_angle_2_text">肩关节水平外展和内收角度</string>
     <string name="mrra_control_not_connected">未连接</string>
-    <string name="mrra_control_try">尝试连接</string>
-    <string name="mrra_control_error">错误</string>
+    <string name="mrra_control_connecting">正在连接</string>
+    <string name="mrra_control_verifying">正在验证</string>
+    <string name="mrra_control_connect_error">连接错误</string>
+    <string name="mrra_control_verification_failed">验证失败</string>
     <string name="mrra_control_mode_passive">主动</string>
     <string name="mrra_control_mode_initiative">被动</string>
     <string name="mrra_control_mode_memory">记忆</string>
@@ -39,9 +41,11 @@
     <string name="mrra_control_mode_reappearance">复现中</string>
     <string name="mrra_control_mode_stop">停止</string>
     <string name="mrra_connect_status_success">连接成功</string>
-    <string name="mrra_control_init_mode_select">已选择</string>
-    <string name="mrra_control_init_mode_select_first">请先选择模式</string>
+    <string name="mrra_control_passive_mode_select">已选择</string>
+    <string name="mrra_control_passive_mode_select_first">请先选择模式</string>
     <string name="mrra_control_please_stop">请先停止</string>
+    <string name="mrra_control_write_success">输入成功</string>
+    <string name="mrra_control_write_fail">输入失败</string>
     <string name="mrra_control_mode_send">发送</string>
     <string name="mrra_control_mode_memory_start">开始记忆</string>
     <string name="mrra_control_mode_memory_stop">停止记忆</string>

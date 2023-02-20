@@ -25,35 +25,39 @@ import java.util.*
  * 具体支持哪种操作应重点关注蓝牙通道的操作符，解释起来比较复杂
  *
  * @param targetUUID 要操作的目标 [UUID] 集合，必须全部匹配才会扫描成功，否则认为扫描失败
- * @param onCharacteristicRead 读特征值的监听，详见 [readCharacteristicValue]
- * @param onCharacteristicWrite 写特征值的监听，详见 [writeCharacteristicValue]
- * @param onCharacteristicChanged 监听特征值的回调，详见 [notifyCharacteristicValue]
  * */
-@Suppress("MissingPermission")
-class LeConnectController(
-    private val targetUUID: Set<UUIDFilter>,
-    private val onCharacteristicRead: (BluetoothGattCharacteristic) -> Unit = { },
-    private val onCharacteristicWrite: (BluetoothGattCharacteristic) -> Unit = { },
-    private val onCharacteristicChanged: (BluetoothGattCharacteristic) -> Unit = { }
+@Suppress("MissingPermission", "StaticFieldLeak")
+class LeController constructor(
+    private val context: Context,
+    private val targetUUID: Set<UUIDFilter>
 ) : BluetoothGattCallback() {
 
     private val _leConnectStatus = MutableStateFlow(LeConnectStatus.NOT_CONNECTED)
 
     /**
      * 当前的连接状态
+     *
+     * @see LeConnectStatus
      * */
     val leConnectStatus: StateFlow<LeConnectStatus> = _leConnectStatus.asStateFlow()
 
+    private val _leDevice = MutableStateFlow<BluetoothDevice?>(null)
+
+    /**
+     * 当前选中的蓝牙设备
+     * */
+    val leDevice = _leDevice.asStateFlow()
+
     private var leGatt: BluetoothGatt? = null
 
-    private val leCharacteristicMap =
-        hashMapOf<UUIDFilter, BluetoothGattCharacteristic>()
+    private val leCharacteristicMap = hashMapOf<UUIDFilter, BluetoothGattCharacteristic>()
+
+    private val leListeners = hashSetOf<LeCharacteristicListener>()
 
     /**
      * 连接设备，将从 [leConnectStatus] 中获得连接状态
      * */
     fun connectLeDevice(
-        context: Context,
         device: BluetoothDevice,
         connectFilter: (BluetoothDevice) -> Boolean = { true }
     ) {
@@ -63,6 +67,7 @@ class LeConnectController(
             disconnectLeDevice()
         }
         leGatt = null
+        _leDevice.value = device
         if (connectFilter(device)) {
             _leConnectStatus.value = LeConnectStatus.CONNECTING
             leGatt = device.connectGatt(context, false, this)
@@ -79,6 +84,8 @@ class LeConnectController(
      * */
     fun disconnectLeDevice() {
         leGatt?.disconnect()
+        leGatt = null
+        _leDevice.value = null
     }
 
     /**
@@ -137,6 +144,22 @@ class LeConnectController(
         return gatt.setCharacteristicNotification(characteristic, enable)
     }
 
+    /**
+     * 增加特征值操作监听
+     * */
+    fun addLeCharacteristicListener(listener: LeCharacteristicListener) {
+        leListeners.add(listener)
+    }
+
+    /**
+     * 移除特征值操作监听
+     *
+     * @return 指定的监听原本是否存在于监听列表中
+     * */
+    fun removeLeCharacteristicListener(listener: LeCharacteristicListener): Boolean {
+        return leListeners.remove(listener)
+    }
+
     override fun onConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int) {
         leCharacteristicMap.clear()
         if (newState == BluetoothGatt.STATE_CONNECTED) {
@@ -161,24 +184,48 @@ class LeConnectController(
             }
             leCharacteristicMap[filter] = characteristic
         }
-        _leConnectStatus.value = LeConnectStatus.CHARACTERISTIC_FILTER_SUCCESS
+        _leConnectStatus.value = LeConnectStatus.SUCCESS
     }
 
     override fun onCharacteristicRead(
         gatt: BluetoothGatt,
         characteristic: BluetoothGattCharacteristic,
         status: Int
-    ) = onCharacteristicRead(characteristic)
+    ) {
+        runCatching {
+            leListeners.forEach {
+                it.onCharacteristicRead(characteristic)
+            }
+        }.onFailure {
+            _leConnectStatus.value = LeConnectStatus.OPERATION_ERROR
+        }
+    }
 
     override fun onCharacteristicWrite(
         gatt: BluetoothGatt,
         characteristic: BluetoothGattCharacteristic,
         status: Int
-    ) = onCharacteristicWrite(characteristic)
+    ) {
+        runCatching {
+            leListeners.forEach {
+                it.onCharacteristicWrite(characteristic)
+            }
+        }.onFailure {
+            _leConnectStatus.value = LeConnectStatus.OPERATION_ERROR
+        }
+    }
 
     override fun onCharacteristicChanged(
         gatt: BluetoothGatt,
         characteristic: BluetoothGattCharacteristic
-    ) = onCharacteristicChanged(characteristic)
+    ) {
+        runCatching {
+            leListeners.forEach {
+                it.onCharacteristicChanged(characteristic)
+            }
+        }.onFailure {
+            _leConnectStatus.value = LeConnectStatus.OPERATION_ERROR
+        }
+    }
 
 }

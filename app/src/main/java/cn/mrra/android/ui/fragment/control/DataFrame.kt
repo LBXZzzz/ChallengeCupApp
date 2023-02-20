@@ -1,5 +1,6 @@
 package cn.mrra.android.ui.fragment.control
 
+import cn.mrra.android.entity.ControlMode
 import cn.mrra.android.entity.MemoryRecord
 import kotlin.math.round
 
@@ -43,6 +44,17 @@ class DataFrame(val values: ByteArray) {
 
     val isStop: Boolean get() = mode == 0 && stopFlag == 1
 
+    val controlMode: ControlMode
+        get() {
+            return when {
+                isPassive -> ControlMode.PASSIVE
+                isInitiative -> ControlMode.INITIATIVE
+                isMemory -> ControlMode.MEMORY_REAPPEARANCE
+                isStop -> ControlMode.STOP
+                else -> ControlMode.ERROR
+            }
+        }
+
     init {
         when {
             values.size != 11 -> {
@@ -56,15 +68,15 @@ class DataFrame(val values: ByteArray) {
         }
     }
 
-    object ByteArrayBuilder {
+    object SimpleDataFrameBuilder {
 
-        private fun setAll(mode: Int, stop: Int, initMode: Int): ByteArray {
+        private fun setAll(mode: Int, stop: Int, passiveMode: Int): ByteArray {
             return ByteArray(11) {
                 when (it) {
                     0 -> 'L'.code.toByte()
                     1 -> mode.toByte()
                     2, 3, 4, 5, 6, 7 -> 0
-                    8 -> initMode.toByte()
+                    8 -> passiveMode.toByte()
                     9 -> stop.toByte()
                     10 -> 'X'.code.toByte()
                     else -> 0
@@ -72,8 +84,8 @@ class DataFrame(val values: ByteArray) {
             }
         }
 
-        fun buildPassive(initMode: Int): DataFrame {
-            return DataFrame(setAll(1, 0, initMode))
+        fun buildPassive(passiveMode: Int): DataFrame {
+            return DataFrame(setAll(1, 0, passiveMode))
         }
 
         fun buildInitiative(): DataFrame {

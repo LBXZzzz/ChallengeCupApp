@@ -23,13 +23,18 @@ enum class LeConnectStatus {
     CHARACTERISTIC_FILTER_ERROR,
 
     /**
-     * 特征值过滤完成
+     * 特征值过滤完成，连接成功
      * */
-    CHARACTERISTIC_FILTER_SUCCESS,
+    SUCCESS,
 
     /**
      * 连接错误
      * */
-    CONNECT_ERROR
+    CONNECT_ERROR,
+
+    /**
+     * 操作错误
+     * */
+    OPERATION_ERROR
 
 }

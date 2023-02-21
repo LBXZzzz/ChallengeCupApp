@@ -1,13 +1,17 @@
 package cn.mrra.android.ui.activity
 
 import android.Manifest
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import cn.mrra.android.R
+import cn.mrra.android.common.base.ACTION_NAVIGATE
 import cn.mrra.android.common.base.SimpleActivity
 import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.ActivityMrraBinding
@@ -15,6 +19,8 @@ import cn.mrra.android.databinding.ActivityMrraBinding
 class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
 
     override val layoutId: Int = R.layout.activity_mrra
+
+    private lateinit var navController: NavController
 
     @RequiresApi(Build.VERSION_CODES.S)
     private val permissions31 = arrayOf(
@@ -51,6 +57,24 @@ class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
         }
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent != null && intent.action == ACTION_NAVIGATE) {
+            val id = intent.getIntExtra("id", 0)
+            navController.navigate(
+                id,
+                null,
+                NavOptions.Builder()
+                    .setLaunchSingleTop(true)
+                    .setPopUpTo(
+                        navController.graph.startDestinationId,
+                        inclusive = true,
+                        saveState = false
+                    ).build()
+            )
+        }
+    }
+
     private fun initView() {
         initNav()
     }
@@ -58,7 +82,7 @@ class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
     private fun initNav() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_mrra_host) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.navMrraNav, navController)
     }
 

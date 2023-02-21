@@ -3,141 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
-        android:id="@+id/sv_product_root"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:edgeToEdge="true"
         app:fitsSystemWindowsInsets="top"
-        tools:context=".ui.fragment.ProductFragment">
+        tools:context=".fragment.mrra.MRRAFragment">
 
-        <LinearLayout
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tb_mrra_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="?android:colorBackground"
+            android:elevation="0dp"
+            app:tabIndicatorColor="?attr/colorPrimary"
+            app:tabSelectedTextColor="?attr/colorPrimary"
+            app:tabTextAppearance="@style/TabLayoutStyle"
+            app:tabTextColor="@color/gray_transparent_80" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="UselessParent">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_mrra_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-                <cn.mrra.android.common.widget.video.VideoPlayerView
-                    android:id="@+id/vpv_product_video"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp" />
-
-                <TextView
-                    android:id="@+id/tv_product_tip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/vpv_product_video"
-                    android:layout_alignBottom="@id/vpv_product_video"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:text="@string/product_introduction_tip"
-                    android:textColor="@color/soft_white"
-                    android:textSize="20sp" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="end"
-                android:text="@string/product_introduction_title_0"
-                android:textColor="?attr/titleTextColor"
-                android:textSize="48sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_introduction_0" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/product_introduction_0"
-                android:textColor="?attr/itemTextColor" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="end"
-                android:text="@string/product_introduction_title_1"
-                android:textColor="?attr/titleTextColor"
-                android:textSize="48sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_introduction_1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/product_introduction_1"
-                android:textColor="?attr/itemTextColor" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="end"
-                android:text="@string/product_introduction_title_2"
-                android:textColor="?attr/titleTextColor"
-                android:textSize="48sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_introduction_2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/product_introduction_2"
-                android:textColor="?attr/itemTextColor" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="end"
-                android:text="@string/product_introduction_title_3"
-                android:textColor="?attr/titleTextColor"
-                android:textSize="48sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_introduction_3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/product_introduction_3"
-                android:textColor="?attr/itemTextColor" />
-
-        </LinearLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
 </layout>

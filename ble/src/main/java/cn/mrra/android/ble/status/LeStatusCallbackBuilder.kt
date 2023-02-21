@@ -1,6 +1,6 @@
 package cn.mrra.android.ble.status
 
-class StatusCallbackBuilder {
+class LeStatusCallbackBuilder {
 
     internal var turningOn: () -> Unit = {}
     internal var on: () -> Unit = {}

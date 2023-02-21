@@ -11,6 +11,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { setUrl("https://jitpack.io") }
+        maven {
+            setUrl("https://s01.oss.sonatype.org/content/repositories/releases/")
+            content {
+                includeGroupByRegex("dev.rikka.*")
+            }
+        }
     }
 }
 rootProject.name = "MRRA"

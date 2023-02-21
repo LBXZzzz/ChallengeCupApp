@@ -1,46 +1,57 @@
 package cn.mrra.android.ui.fragment
 
 import android.os.Bundle
-import android.widget.MediaController
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import cn.mrra.android.R
 import cn.mrra.android.common.base.SimpleFragment
-import cn.mrra.android.common.widget.video.SimpleStatusListener
-import cn.mrra.android.common.widget.video.VideoPlayerView
 import cn.mrra.android.databinding.FragmentMrraBinding
+import cn.mrra.android.ui.fragment.mrra.ContactFragment
+import cn.mrra.android.ui.fragment.mrra.ControlFragment
+import cn.mrra.android.ui.fragment.mrra.IntroductionFragment
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MRRAFragment : SimpleFragment<FragmentMrraBinding>() {
 
     override val layoutId: Int = R.layout.fragment_mrra
 
-    private lateinit var mediaController: MediaController
-
     override fun onFragmentCreated(savedInstanceState: Bundle?) {
-        with(binding.vpvProductVideo) {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                setAudioFocusRequest(android.media.AudioManager.AUDIOFOCUS_NONE)
-            }
-            mediaController = MediaController(requireContext())
-            mediaController.setAnchorView(this)
-            setMediaController(mediaController)
-            // setVideoURI(getRawUri(R.raw.video_introduction))
-            setOnCompletionListener {
-                binding.tvProductTip.visibility = android.view.View.VISIBLE
-            }
-            setStartListener(object : SimpleStatusListener() {
-                override fun onStart(player: VideoPlayerView) {
-                    binding.tvProductTip.visibility = android.view.View.GONE
-                }
-            })
-        }
+        with(binding) {
+            vpMrraViewPager.adapter = MRRAFragmentViewPagerAdapter(
+                this@MRRAFragment
+            )
+            vpMrraViewPager.offscreenPageLimit = MRRAFragmentViewPagerAdapter.titles.size
+            vpMrraViewPager.currentItem = 0
 
-        binding.svProductRoot.setOnScrollChangeListener { _, _, _, _, _ ->
-            mediaController.hide()
+            tbMrraTab.tabMode = TabLayout.MODE_FIXED
+            TabLayoutMediator(tbMrraTab, vpMrraViewPager, true) { tab, position ->
+                tab.setText(MRRAFragmentViewPagerAdapter.titles[position])
+            }.attach()
         }
     }
 
-    override fun onPause() {
-        mediaController.hide()
-        super.onPause()
+    class MRRAFragmentViewPagerAdapter(
+        fragment: Fragment
+    ) : FragmentStateAdapter(fragment) {
+
+        companion object {
+            internal val titles = arrayOf(
+                R.string.mrra_control,
+                R.string.mrra_introduction,
+                R.string.mrra_contact_us
+            )
+        }
+
+        override fun getItemCount() = 3
+
+        override fun createFragment(position: Int): Fragment {
+            return when (position) {
+                0 -> ControlFragment()
+                1 -> IntroductionFragment()
+                else -> ContactFragment()
+            }
+        }
     }
 
 }

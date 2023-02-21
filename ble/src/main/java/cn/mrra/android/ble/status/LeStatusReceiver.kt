@@ -8,16 +8,16 @@ import android.content.IntentFilter
 
 class LeStatusReceiver private constructor(
     initialStatus: Boolean,
-    private val builder: StatusCallbackBuilder
+    private val builder: LeStatusCallbackBuilder
 ) : BroadcastReceiver() {
 
     companion object {
         fun Context.registerBluetoothStatusReceiver(
             initialStatus: Boolean,
-            builder: StatusCallbackBuilder.() -> Unit
+            builder: LeStatusCallbackBuilder.() -> Unit
         ) = LeStatusReceiver(
             initialStatus,
-            StatusCallbackBuilder().apply(builder)
+            LeStatusCallbackBuilder().apply(builder)
         ).also {
             registerReceiver(it, IntentFilter().apply {
                 addAction(BluetoothAdapter.ACTION_STATE_CHANGED)

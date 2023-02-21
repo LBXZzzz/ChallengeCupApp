@@ -17,9 +17,21 @@ object Dependencies {
         }
 
         object Navigation {
-            const val nav_version = "2.5.0-alpha03"
+            const val nav_version = "2.5.3"
             const val fragment = "androidx.navigation:navigation-fragment:$nav_version"
             const val ui = "androidx.navigation:navigation-ui-ktx:$nav_version"
+        }
+
+        object Room {
+            const val room_version = "2.4.2"
+            const val kapt = "androidx.room:room-compiler:$room_version"
+            const val runtime = "androidx.room:room-runtime:$room_version"
+            const val ktx = "androidx.room:room-ktx:$room_version"
+        }
+
+        object DataStore{
+            const val data_store_version = "1.0.0-rc01"
+            const val preference = "androidx.datastore:datastore-preferences:$data_store_version"
         }
     }
 

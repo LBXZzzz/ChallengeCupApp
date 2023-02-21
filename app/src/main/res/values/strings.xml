@@ -16,7 +16,7 @@
     <string name="status_turning_off">Turning OFF</string>
     <string name="status_off">OFF</string>
     <string name="status_error">Error</string>
-
+    
     <string name="product_introduction_tip">Click hear to view the video</string>
     <string name="product_introduction_title_0">Free</string>
     <string name="product_introduction_title_1">Realtime</string>
@@ -46,6 +46,51 @@
     <string name="product_sold">Ninety-nine pieces have been sold</string>
     <string name="product_share">Share</string>
 
+    <string name="mrra_control">Control C.</string>
+    <string name="mrra_introduction">Product Introduction</string>
+    <string name="mrra_contact_us">Contact Us</string>
+    <string name="mrra_control_bluetooth">Bluetooth</string>
+    <string name="mrra_control_click_to_connect">Click hear to connect</string>
+    <string name="mrra_control_mac_address">MAC Address</string>
+    <string name="mrra_control_device_name">Device Name</string>
+    <string name="mrra_control_connect_status">Status</string>
+    <string name="mrra_control_mode">Mode</string>
+    <string name="mrra_control_not_connected">Not Connected</string>
+    <string name="mrra_control_connecting">Connecting</string>
+    <string name="mrra_control_verifying">Verifying</string>
+    <string name="mrra_control_connect_error">Connect Error</string>
+    <string name="mrra_control_verification_failed">Verification failed</string>
+    <string name="mrra_control_angle_0_text">Angles of elbow joints</string>
+    <string name="mrra_control_angle_1_text">Angles of shoulder flexion and extension</string>
+    <string name="mrra_control_angle_2_text">Angles of shoulder joint horizontal abduction and adduction</string>
+    <string name="mrra_control_mode_passive">Passive</string>
+    <string name="mrra_control_mode_initiative">Initiative</string>
+    <string name="mrra_control_mode_memory">Memory</string>
+    <string name="mrra_control_mode_reappearance">Reappearance</string>
+    <string name="mrra_control_mode_stop">Stop</string>
+    <string name="mrra_control_please_stop_memory">Please Stop Memory First</string>
+    <string name="mrra_control_not_memory">Not In Memory</string>
+    <string name="mrra_control_reappearance_empty">Please Remember First</string>
+    <string name="mrra_connect_status_success">Success</string>
+    <string name="mrra_control_passive_mode_select">Selected</string>
+    <string name="mrra_control_passive_mode_select_first">Please Selected Mode First</string>
+    <string name="mrra_control_mode_send">Send</string>
+    <string name="mrra_control_mode_memory_start">Start To Remember</string>
+    <string name="mrra_control_mode_memory_stop">Stop Memory</string>
+    <string name="mrra_control_please_stop">Please Stop First</string>
+    <string name="mrra_control_write_success">Input Success</string>
+    <string name="mrra_control_write_fail">Input failed</string>
+    <string name="mrra_introduction_tip">Click hear to view the video</string>
+    <string name="mrra_introduction_title_0">Free</string>
+    <string name="mrra_introduction_title_1">Realtime</string>
+    <string name="mrra_introduction_title_2">Light</string>
+    <string name="mrra_introduction_title_3">Comfortable</string>
+    <string name="mrra_introduction_0">The robotic arm stores three training modes.People choose one according to the needs . It also provided customized training programs. Users can select training mode, view training records and training reports through the APP.</string>
+    <string name="mrra_introduction_1">Paramedics monitored the training data of multiple patients remotely in real time.</string>
+    <string name="mrra_introduction_2">Unlike the heavy, bulky traditional mechanical arm, we choose carbon fiber, ABS and other materials to achieve lightweight and nice strength. In addition, the material touched with the human body feels comfortable.</string>
+    <string name="mrra_introduction_3">We use sliding mode impedance control/ based on improved reaching law, to achieve fast and stable trajectory. Structure design is more ergonomic.</string>
+    <string name="mrra_contact_text">MRRA team was founded in Guangdong University of Technology.\nOur team comes from mechanical and electrical, computer, materials and energy, art and design, management, foreign languages institutes. There are 11 students with different professional knowledge to develop this program together, including C, C++, OpenCV developers, and the mechanical structure design and embedded personnel. We are professional in various fields.\n\nContact us: GUANGDONG University of Technology MRRA team\nProject Leader: Dong Eryi\nContact: 18177413701\nAddress: No. 100, Huanxi Road, Guangzhou University, Xiaoguwei Street, Panyu District, Guangzhou city, Guangdong Province</string>
+
     <string name="mrra_not_connected_des">No device is connected, please go to the "Connection" module to connect.</string>
     <string name="permission_des">The application cannot be used without Bluetooth or location permission.</string>
 
@@ -57,7 +102,7 @@
     <string name="settings_cn">简体中文</string>
     <string name="settings_tip_en">Restart the app to apply the language settings</string>
     <string name="settings_tip_zh">重启应用以应用语言设置</string>
-    <string name="settings_click_to_restart">Restart \ 重启</string>
+    <string name="settings_click_to_save">Save \ 保存</string>
     <string name="setting_change_language">Change the language to English?</string>
     <string name="setting_change_language_ok">OK</string>
     <string name="setting_change_language_cancel">Cancel</string>

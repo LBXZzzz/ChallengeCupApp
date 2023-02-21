@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".fragment.mrra.control.ControlFragment">
+
+        <LinearLayout
+            android:id="@+id/ll_control_status_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/gray_transparent_10"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_control_connect"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_mrra" />
+
+                    <cn.mrra.android.common.widget.TextViewMarqueeForever
+                        android:id="@+id/tv_control_mac_address_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_control_mac_address"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/mrra_control_mac_address"
+                        android:textColor="?attr/titleTextColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <cn.mrra.android.common.widget.TextViewMarqueeForever
+                        android:id="@+id/tv_control_mac_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_control_device_name_title"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/mrra_control_not_connected"
+                        android:textColor="?attr/itemTextColor"
+                        android:textSize="14sp" />
+
+                    <cn.mrra.android.common.widget.TextViewMarqueeForever
+                        android:id="@+id/tv_control_device_name_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_control_device_name"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/mrra_control_device_name"
+                        android:textColor="?attr/titleTextColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <cn.mrra.android.common.widget.TextViewMarqueeForever
+                        android:id="@+id/tv_control_device_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/mrra_control_not_connected"
+                        android:textColor="?attr/itemTextColor"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/ic_connect_status" />
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_connect_status_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="64dp"
+                            android:text="@string/mrra_control_connect_status"
+                            android:textColor="?attr/titleTextColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_connect_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_control_connect_status_title"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/mrra_control_not_connected"
+                            android:textColor="?attr/itemTextColor"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@color/gray_transparent_10"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/ic_mode" />
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_mode_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="64dp"
+                            android:text="@string/mrra_control_mode"
+                            android:textColor="?attr/titleTextColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_control_mode_title"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/mrra_control_not_connected"
+                            android:textColor="?attr/itemTextColor"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_control_angle_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_control_status_box"
+            android:elevation="0dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/gray_transparent_10"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@color/white_transparent_0"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp">
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_angle_name_0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="16dp"
+                            android:layout_toStartOf="@id/tv_control_angle_0"
+                            android:text="@string/mrra_control_angle_0_text"
+                            android:textColor="?attr/titleTextColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_control_angle_0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="-°"
+                            android:textColor="?attr/itemTextColor"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp">
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_angle_name_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="24dp"
+                            android:layout_toStartOf="@id/tv_control_angle_1"
+                            android:text="@string/mrra_control_angle_1_text"
+                            android:textColor="?attr/titleTextColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_control_angle_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="-°"
+                            android:textColor="?attr/itemTextColor"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp">
+
+                        <cn.mrra.android.common.widget.TextViewMarqueeForever
+                            android:id="@+id/tv_control_angle_name_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="16dp"
+                            android:layout_toStartOf="@id/tv_control_angle_2"
+                            android:text="@string/mrra_control_angle_2_text"
+                            android:textColor="?attr/titleTextColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_control_angle_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="-°"
+                            android:textColor="?attr/itemTextColor"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/fl_control_angle_box"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/gray_transparent_10"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_control_mode_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_transparent_0"
+                    android:elevation="0dp"
+                    app:tabIndicatorColor="?attr/colorPrimary"
+                    app:tabSelectedTextColor="?attr/colorPrimary"
+                    app:tabTextAppearance="@style/TabLayoutStyle"
+                    app:tabTextColor="@color/gray_transparent_80" />
+
+                <cn.mrra.android.common.widget.ViewPager2Container
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="0dp">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vp_control_view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:elevation="0dp" />
+
+                </cn.mrra.android.common.widget.ViewPager2Container>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

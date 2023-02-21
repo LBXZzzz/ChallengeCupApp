@@ -7,12 +7,12 @@ sealed class LeScanResult(
      * 状态码
      *
      * @see LeManager.SCAN_SUCCESS_NO_ERROR
-     * @see LeManager.SCAN_FAILED_ALREADY_STARTED = 1
+     * @see LeManager.SCAN_FAILED_ALREADY_STARTED
      * @see LeManager.SCAN_FAILED_APPLICATION_REGISTRATION_FAILED
-     * @see LeManager.SCAN_FAILED_INTERNAL_ERROR = 3
-     * @see LeManager.SCAN_FAILED_FEATURE_UNSUPPORTED = 4
-     * @see LeManager.SCAN_FAILED_OUT_OF_HARDWARE_RESOURCES = 5
-     * @see LeManager.SCAN_FAILED_SCANNING_TOO_FREQUENTLY = 6
+     * @see LeManager.SCAN_FAILED_INTERNAL_ERROR
+     * @see LeManager.SCAN_FAILED_FEATURE_UNSUPPORTED
+     * @see LeManager.SCAN_FAILED_OUT_OF_HARDWARE_RESOURCES
+     * @see LeManager.SCAN_FAILED_SCANNING_TOO_FREQUENTLY
      * */
     val state: Int,
     /**

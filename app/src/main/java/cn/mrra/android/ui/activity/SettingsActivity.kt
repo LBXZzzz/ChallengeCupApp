@@ -1,16 +1,10 @@
 package cn.mrra.android.ui.activity
 
-import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.view.KeyEvent
-import androidx.appcompat.app.AlertDialog
 import cn.mrra.android.R
-import cn.mrra.android.common.base.ACTION_RECREATE
 import cn.mrra.android.common.base.SimpleActivity
-import cn.mrra.android.common.restartApplication
 import cn.mrra.android.common.startActivity
 import cn.mrra.android.databinding.ActivitySettingsBinding
-import kotlinx.coroutines.runBlocking
 
 class SettingsActivity : SimpleActivity<ActivitySettingsBinding>() {
 
@@ -44,10 +38,8 @@ class SettingsActivity : SimpleActivity<ActivitySettingsBinding>() {
 //                }
 //            }
 //
-            tvSettingRestart.setOnClickListener {
-                startActivity<MRRAActivity> {
-                    action = ACTION_RECREATE
-                }
+            tvSettingSave.setOnClickListener {
+                startActivity<MRRAActivity>()
             }
 //
 //            getLocale().let { locale ->

@@ -14,6 +14,15 @@ object Preference {
     fun init(context: Context) {
         appDarkModeDelegate = DayNightDelegate(context)
         appLocaleDelegate = LocaleDelegate()
+
+        DayNightDelegate.setDefaultNightMode(
+            if (context.isDarkMode) {
+                DayNightDelegate.MODE_NIGHT_YES
+            } else {
+                DayNightDelegate.MODE_NIGHT_NO
+            }
+        )
+        LocaleDelegate.defaultLocale = Locale.getDefault()
     }
 
     fun onNewConfiguration(newConfig: Configuration) {
@@ -32,8 +41,8 @@ object Preference {
     }
 
     fun onNewUserPreference(userPreference: UserPreference) {
-        if (appDarkModePolicy != userPreference.darkMode) {
-            when (userPreference.darkMode) {
+        if (appDarkModePolicy != userPreference.darkModePolicy) {
+            when (userPreference.darkModePolicy) {
                 0 -> {
                     DayNightDelegate.setDefaultNightMode(
                         DayNightDelegate.MODE_NIGHT_NO
@@ -54,10 +63,10 @@ object Preference {
                     )
                 }
             }
-            appDarkModePolicy = userPreference.darkMode
+            appDarkModePolicy = userPreference.darkModePolicy
         }
-        if (appLocalePolicy != userPreference.locale) {
-            when (userPreference.locale) {
+        if (appLocalePolicy != userPreference.localePolicy) {
+            when (userPreference.localePolicy) {
                 0 -> {
                     LocaleDelegate.defaultLocale = Locale.CHINA
                 }
@@ -68,7 +77,7 @@ object Preference {
                     LocaleDelegate.defaultLocale = Locale.getDefault()
                 }
             }
-            appLocalePolicy = userPreference.locale
+            appLocalePolicy = userPreference.localePolicy
         }
     }
 
@@ -78,8 +87,14 @@ object Preference {
     lateinit var appLocaleDelegate: LocaleDelegate
         private set
 
+    /**
+     * 深色模式策略，0 代表浅色模式，1 代表深色模式，-1 代表跟随系统
+     * */
     var appDarkModePolicy: Int = -1
 
+    /**
+     * 语言策略，0 代表简体中文，1 代表英文，-1 代表跟随系统
+     * */
     var appLocalePolicy: Int = -1
 
 }

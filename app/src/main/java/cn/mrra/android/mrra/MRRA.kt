@@ -16,6 +16,7 @@ import cn.mrra.android.common.toastMsg
 import cn.mrra.android.entity.ConnectStatus
 import cn.mrra.android.entity.ControlMode
 import cn.mrra.android.entity.MemoryRecord
+import cn.mrra.android.storage.room.MemoryRecordDatabase
 import cn.mrra.android.ui.fragment.control.DataFrame
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -204,6 +205,8 @@ class MRRA private constructor(context: Context) {
             val p2 = info.second.p2
             records.add(MemoryRecord("tag", i.toLong(), delay, p0, p1, p2))
         }
+        MemoryRecordDatabase.deleteRecords()
+        MemoryRecordDatabase.insertRecords(records)
         memoryCache.clear()
     }
 

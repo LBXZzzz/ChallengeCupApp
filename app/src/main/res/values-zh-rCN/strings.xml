@@ -94,17 +94,19 @@
     <string name="mrra_not_connected_des">未连接设备，请前往“连接”模块中进行连接</string>
     <string name="permission_des">未授予蓝牙或定位权限，无法使用本应用</string>
 
+    <string name="settings_follow_system">跟随系统</string>
     <string name="me_settings">设置</string>
     <string name="me_user">MRRA 用户</string>
     <string name="settings_lang">语言</string>
     <string name="settings_en">English</string>
     <string name="settings_cn">简体中文</string>
-    <string name="settings_tip_en">Restart the app to apply the language settings</string>
-    <string name="settings_tip_zh">重启应用以应用语言设置</string>
-    <string name="settings_click_to_save">Save \ 保存</string>
-    <string name="setting_change_language">更换语言为简体中文？</string>
-    <string name="setting_change_language_ok">好的</string>
-    <string name="setting_change_language_cancel">取消</string>
+    <string name="settings_dark_mode">深色模式</string>
+    <string name="settings_dark_mode_dark">总是开启深色模式</string>
+    <string name="settings_dark_mode_light">总是关闭深色模式</string>
+    <string name="settings_click_to_save">保存</string>
+    <string name="setting_save_msg">保存设置？</string>
+    <string name="setting_save_ok">好的</string>
+    <string name="setting_save_cancel">取消</string>
 
     <string name="team_introduction_0">“MRRA”团队成立于广东工业大学</string>
     <string name="team_introduction_1">本项目由来自机电、计算机、信工、材能、艺术与设计、管理、外国语学院等11名拥有不同专业知识的学生共同开发，其中包括C语言、C++、OpenCV开发人员，及机械结构设计和嵌入式人员等，团队成员专业素质高，在相关领域均有较为深入研究</string>

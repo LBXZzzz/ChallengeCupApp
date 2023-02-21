@@ -56,6 +56,7 @@ dependencies {
     testImplementation(Dependencies.Test.junit)
     androidTestImplementation(Dependencies.AndroidTest.junit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)
+    implementation(Dependencies.Banner.banner1)
 }
 
 configurations.all {

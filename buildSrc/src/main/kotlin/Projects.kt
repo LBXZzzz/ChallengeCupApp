@@ -70,6 +70,7 @@ object Dependencies {
     }
 
     object Banner{
-        const val banner="io.github.youth5201314:banner:2.2.2"
+        const val banner1="com.github.donkingliang:CustomBanner:1.1.3"
+        const val banner2="com.github.bingoogolapple:BGABanner-Android:3.0.1"
     }
 }

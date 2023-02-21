@@ -205,6 +205,7 @@ class MRRA private constructor(context: Context) {
             val p2 = info.second.p2
             records.add(MemoryRecord("tag", i.toLong(), delay, p0, p1, p2))
         }
+        MemoryRecordDatabase.deleteRecords()
         MemoryRecordDatabase.insertRecords(records)
         memoryCache.clear()
     }

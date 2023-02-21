@@ -10,7 +10,6 @@ class MRRAApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         Preference.init(appContext)
-        MRRA.init(appContext)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

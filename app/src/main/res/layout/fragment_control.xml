@@ -218,7 +218,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingHorizontal="24dp"
+                        android:paddingHorizontal="16dp"
                         android:paddingVertical="4dp">
 
                         <cn.mrra.android.common.widget.TextViewMarqueeForever
@@ -226,7 +226,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_marginEnd="24dp"
+                            android:layout_marginEnd="16dp"
                             android:layout_toStartOf="@id/tv_control_angle_0"
                             android:text="@string/mrra_control_angle_0_text"
                             android:textColor="?attr/titleTextColor"
@@ -249,7 +249,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingHorizontal="24dp"
+                        android:paddingHorizontal="16dp"
                         android:paddingVertical="4dp">
 
                         <cn.mrra.android.common.widget.TextViewMarqueeForever
@@ -279,7 +279,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingHorizontal="24dp"
+                        android:paddingHorizontal="16dp"
                         android:paddingVertical="4dp">
 
                         <cn.mrra.android.common.widget.TextViewMarqueeForever
@@ -287,7 +287,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_marginEnd="24dp"
+                            android:layout_marginEnd="16dp"
                             android:layout_toStartOf="@id/tv_control_angle_2"
                             android:text="@string/mrra_control_angle_2_text"
                             android:textColor="?attr/titleTextColor"

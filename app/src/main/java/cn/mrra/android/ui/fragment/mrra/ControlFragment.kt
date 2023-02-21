@@ -6,17 +6,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import cn.mrra.android.R
 import cn.mrra.android.common.base.SimpleFragment
+import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.FragmentControlBinding
 import cn.mrra.android.entity.ConnectStatus
 import cn.mrra.android.entity.ControlMode
 import cn.mrra.android.mrra.MRRA
+import cn.mrra.android.ui.fragment.control.*
 import cn.mrra.android.ui.fragment.control.DataFrame.Companion.formatP0ToAngle0
 import cn.mrra.android.ui.fragment.control.DataFrame.Companion.formatP1ToAngle1
 import cn.mrra.android.ui.fragment.control.DataFrame.Companion.formatP2ToAngle2
-import cn.mrra.android.ui.fragment.control.InitiativeFragment
-import cn.mrra.android.ui.fragment.control.MemoryFragment
-import cn.mrra.android.ui.fragment.control.PassiveFragment
-import cn.mrra.android.ui.fragment.control.StopFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.launch
@@ -91,10 +89,11 @@ class ControlFragment : SimpleFragment<FragmentControlBinding>() {
 
         companion object {
             internal val titles = arrayOf(
-                ControlMode.STOP.label,
-                ControlMode.PASSIVE.label,
                 ControlMode.INITIATIVE.label,
-                ControlMode.MEMORY.label
+                ControlMode.PASSIVE.label,
+                ControlMode.MEMORY.label,
+                ControlMode.REAPPEARANCE.label,
+                ControlMode.STOP.label
             )
         }
 
@@ -102,10 +101,11 @@ class ControlFragment : SimpleFragment<FragmentControlBinding>() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> StopFragment()
+                0 -> InitiativeFragment()
                 1 -> PassiveFragment()
-                2 -> InitiativeFragment()
-                else -> MemoryFragment()
+                2 -> MemoryFragment()
+                3 -> ReappearanceFragment()
+                else -> StopFragment()
             }
         }
     }

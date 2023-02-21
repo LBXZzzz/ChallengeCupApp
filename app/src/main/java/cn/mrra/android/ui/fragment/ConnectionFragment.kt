@@ -149,6 +149,11 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
         private val resultList = mutableListOf<BluetoothDevice>()
 
         init {
+            MRRA.INSTANCE.controller.leDevice.value?.let {
+                addressSet.add(it.address)
+                resultList.add(it)
+                notifyItemInserted(0)
+            }
             coroutineScope.launch {
                 resultFlow.collect {
                     if (it is LeScanResult.Failure) {

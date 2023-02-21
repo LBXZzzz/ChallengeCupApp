@@ -37,9 +37,11 @@
     <string name="mrra_control_mode_passive">主动</string>
     <string name="mrra_control_mode_initiative">被动</string>
     <string name="mrra_control_mode_memory">记忆</string>
-    <string name="mrra_control_mode_remember">记忆中</string>
-    <string name="mrra_control_mode_reappearance">复现中</string>
+    <string name="mrra_control_mode_reappearance">复现</string>
     <string name="mrra_control_mode_stop">停止</string>
+    <string name="mrra_control_please_stop_memory">请先停止记忆</string>
+    <string name="mrra_control_not_memory">未在记忆</string>
+    <string name="mrra_control_reappearance_empty">请先记忆</string>
     <string name="mrra_connect_status_success">连接成功</string>
     <string name="mrra_control_passive_mode_select">已选择</string>
     <string name="mrra_control_passive_mode_select_first">请先选择模式</string>
@@ -49,7 +51,6 @@
     <string name="mrra_control_mode_send">发送</string>
     <string name="mrra_control_mode_memory_start">开始记忆</string>
     <string name="mrra_control_mode_memory_stop">停止记忆</string>
-    <string name="mrra_control_mode_memory_reappearance">复现</string>
     <string name="mrra_introduction_tip">点击此处查看视频</string>
     <string name="mrra_introduction_title_0">自由</string>
     <string name="mrra_introduction_title_1">实时</string>
@@ -71,7 +72,7 @@
     <string name="settings_cn">简体中文</string>
     <string name="settings_tip_en">Restart the app to apply the language settings</string>
     <string name="settings_tip_zh">重启应用以应用语言设置</string>
-    <string name="settings_click_to_restart">Restart \ 重启</string>
+    <string name="settings_click_to_save">Save \ 保存</string>
     <string name="setting_change_language">更换语言为简体中文？</string>
     <string name="setting_change_language_ok">好的</string>
     <string name="setting_change_language_cancel">取消</string>

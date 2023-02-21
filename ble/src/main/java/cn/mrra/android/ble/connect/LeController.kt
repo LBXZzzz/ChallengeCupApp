@@ -166,7 +166,7 @@ class LeController constructor(
             leGatt = gatt
             _leConnectStatus.value = LeConnectStatus.CONNECTED
         } else {
-            _leConnectStatus.value = LeConnectStatus.NOT_CONNECTED
+            _leConnectStatus.value = LeConnectStatus.CONNECT_ERROR
             leGatt = null
         }
     }

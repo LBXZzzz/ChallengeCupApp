@@ -1,5 +1,6 @@
 package cn.mrra.android.common.base
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import cn.mrra.android.common.isDarkMode
+import cn.mrra.android.common.preference.Preference
 import rikka.material.app.MaterialActivity
 import java.lang.reflect.ParameterizedType
 
@@ -56,9 +58,22 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> :
 
     final override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Preference.appLocaleDelegate.onCreate(this)
         initViewDataBinding()
         initViewModel()
         onActivityCreated(savedInstanceState)
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(newBase)
+        Preference.appLocaleDelegate.updateConfiguration(resources.configuration)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (Preference.appLocaleDelegate.isLocaleChanged) {
+            recreate()
+        }
     }
 
     @CallSuper

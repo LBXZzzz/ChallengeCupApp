@@ -37,7 +37,10 @@ private val notifyUUIDFilter = UUIDFilter(TARGET_SERVICE_UUID, NOTIFY_TARGET_UUI
 
 private const val HANDLER_MSG_REAPPEARANCE = 1
 private const val HANDLER_MSG_WRITE_DATA_FRAME = 2
-private const val HANDLER_MSG_DISPATCH_REAPPEARANCE = 3
+private const val HANDLER_MSG_START_TO_REMEMBER = 3
+private const val HANDLER_MSG_STOP_MEMORY = 4
+
+private const val HANDLER_MSG_DISPATCH_REAPPEARANCE = 101
 
 class MRRA private constructor(context: Context) {
 
@@ -66,12 +69,14 @@ class MRRA private constructor(context: Context) {
 
     val dataFrame = _dataFrame.asSharedFlow()
 
-    private val mrraThread = HandlerThread("LeController").apply { start() }
+    private val memoryCache = mutableListOf<Pair<Long, DataFrame>>()
+
+    private val mrraThread = HandlerThread("MRRA").apply { start() }
     private val mrraHandler = object : Handler(mrraThread.looper) {
         @Suppress("UNCHECKED_CAST")
         override fun handleMessage(msg: Message) {
             runCatching {
-                when (msg.arg1) {
+                when (msg.what) {
                     HANDLER_MSG_REAPPEARANCE -> {
                         reappearance(msg.obj as List<MemoryRecord>)
                     }
@@ -81,6 +86,12 @@ class MRRA private constructor(context: Context) {
                     HANDLER_MSG_DISPATCH_REAPPEARANCE -> {
                         dispatchReappearance(msg.obj as MemoryRecord?)
                     }
+                    HANDLER_MSG_START_TO_REMEMBER -> {
+                        startToRememberInternal()
+                    }
+                    HANDLER_MSG_STOP_MEMORY -> {
+                        stopMemoryInternal()
+                    }
                     else -> {
                     }
                 }
@@ -89,9 +100,9 @@ class MRRA private constructor(context: Context) {
     }
 
     private fun Handler.reappearance(records: List<MemoryRecord>) {
-        _mode.value = ControlMode.MEMORY_REAPPEARANCE
-        // 延迟 1 秒开始
-        val uptime = SystemClock.uptimeMillis() + 1000
+        _mode.value = ControlMode.REAPPEARANCE
+        // 延迟 0.5 秒开始
+        val uptime = SystemClock.uptimeMillis() + 500L
         var lastTime = uptime
         for (record in records) {
             lastTime = max(lastTime, uptime + record.delay)
@@ -102,11 +113,19 @@ class MRRA private constructor(context: Context) {
         }
         sendEmptyMessageAtTime(
             HANDLER_MSG_DISPATCH_REAPPEARANCE,
-            lastTime + 2000L
+            lastTime + 500L
         )
     }
 
     private fun Handler.writeDataFrame(dataFrame: DataFrame) {
+        if (_status.value != ConnectStatus.SUCCESS) {
+            toastMsg(appContext.getString(R.string.mrra_control_write_fail))
+            return
+        }
+        if (_mode.value == ControlMode.MEMORY) {
+            toastMsg(appContext.getString(R.string.mrra_control_please_stop_memory))
+            return
+        }
         val res: Boolean
         if (_mode.value == ControlMode.STOP) {
             _mode.value = dataFrame.controlMode
@@ -124,7 +143,7 @@ class MRRA private constructor(context: Context) {
             )
             if (!dataFrame.isStop) {
                 sendMessage(Message.obtain().apply {
-                    arg1 = HANDLER_MSG_WRITE_DATA_FRAME
+                    what = HANDLER_MSG_WRITE_DATA_FRAME
                     obj = dataFrame
                 })
             }
@@ -136,44 +155,92 @@ class MRRA private constructor(context: Context) {
         }
     }
 
-    private fun dispatchReappearance(record: MemoryRecord?) {
-        controller.writeCharacteristicValue(
-            writeUUIDFilter,
-            if (record != null) {
-                DataFrame.SimpleDataFrameBuilder.buildMemory(record).values
-            } else {
-                _mode.value = ControlMode.STOP
-                DataFrame.SimpleDataFrameBuilder.buildStop().values
-            }
-        )
+    private fun Handler.dispatchReappearance(record: MemoryRecord?) {
+        if (!controller.writeCharacteristicValue(
+                writeUUIDFilter,
+                if (record != null) {
+                    DataFrame.SimpleDataFrameBuilder.buildMemory(record).values
+                } else {
+                    _mode.value = ControlMode.STOP
+                    DataFrame.SimpleDataFrameBuilder.buildStop().values
+                }
+            )
+        ) {
+            removeMessages(HANDLER_MSG_DISPATCH_REAPPEARANCE)
+            toastMsg(appContext.getString(R.string.mrra_control_write_fail))
+        }
+    }
+
+    private fun startToRememberInternal() {
+        if (_status.value != ConnectStatus.SUCCESS) {
+            toastMsg(appContext.getString(R.string.mrra_control_write_fail))
+            return
+        }
+        if (_mode.value != ControlMode.STOP) {
+            toastMsg(appContext.getString(R.string.mrra_control_please_stop))
+            return
+        }
+        memoryCache.clear()
+        _mode.value = ControlMode.MEMORY
+    }
+
+    private fun stopMemoryInternal() {
+        if (_mode.value != ControlMode.MEMORY) {
+            toastMsg(appContext.getString(R.string.mrra_control_not_memory))
+            return
+        }
+        _mode.value = ControlMode.STOP
+        if (memoryCache.isEmpty()) {
+            return
+        }
+        val dataFrameInfoList = memoryCache.toList()
+        val records = mutableListOf<MemoryRecord>()
+        val startTime = dataFrameInfoList.first().first
+        for (i in dataFrameInfoList.indices) {
+            val info = dataFrameInfoList[i]
+            val delay = info.first - startTime
+            val p0 = info.second.p0
+            val p1 = info.second.p1
+            val p2 = info.second.p2
+            records.add(MemoryRecord("tag", i.toLong(), delay, p0, p1, p2))
+        }
+        memoryCache.clear()
     }
 
     fun writeInitiative() {
         mrraHandler.sendMessage(Message.obtain().apply {
-            arg1 = HANDLER_MSG_WRITE_DATA_FRAME
+            what = HANDLER_MSG_WRITE_DATA_FRAME
             obj = DataFrame.SimpleDataFrameBuilder.buildInitiative()
         })
     }
 
     fun writePassive(passiveMode: Int) {
         mrraHandler.sendMessage(Message.obtain().apply {
-            arg1 = HANDLER_MSG_WRITE_DATA_FRAME
+            what = HANDLER_MSG_WRITE_DATA_FRAME
             obj = DataFrame.SimpleDataFrameBuilder.buildPassive(passiveMode)
         })
     }
 
-    fun writeMemory(records: List<MemoryRecord>) {
+    fun writeReappearance(records: List<MemoryRecord>) {
         mrraHandler.sendMessage(Message.obtain().apply {
-            arg1 = HANDLER_MSG_REAPPEARANCE
+            what = HANDLER_MSG_REAPPEARANCE
             obj = records
         })
     }
 
     fun writeStop() {
         mrraHandler.sendMessage(Message.obtain().apply {
-            arg1 = HANDLER_MSG_WRITE_DATA_FRAME
+            what = HANDLER_MSG_WRITE_DATA_FRAME
             obj = DataFrame.SimpleDataFrameBuilder.buildStop()
         })
+    }
+
+    fun startToRemember() {
+        mrraHandler.sendEmptyMessage(HANDLER_MSG_START_TO_REMEMBER)
+    }
+
+    fun stopMemory() {
+        mrraHandler.sendEmptyMessage(HANDLER_MSG_STOP_MEMORY)
     }
 
     init {
@@ -181,28 +248,37 @@ class MRRA private constructor(context: Context) {
         // 全局就可以了，因为这个类本来就是跟随进程的生命周期一同运行的
         GlobalScope.launch(Dispatchers.Main) {
             controller.leConnectStatus.collect {
-                _status.value = when (it) {
+                when (it) {
                     LeConnectStatus.NOT_CONNECTED -> {
-                        ConnectStatus.NOT_CONNECTED
+                        _mode.value = ControlMode.NOT_CONNECTED
+                        _status.value = ConnectStatus.NOT_CONNECTED
                     }
                     LeConnectStatus.CONNECTING -> {
-                        ConnectStatus.CONNECTING
+                        _mode.value = ControlMode.CONNECTING
+                        _status.value = ConnectStatus.CONNECTING
                     }
                     LeConnectStatus.CONNECTED -> {
+                        _status.value = ConnectStatus.VERIFYING
                         controller.discoverService()
-                        ConnectStatus.VERIFYING
                     }
                     LeConnectStatus.SUCCESS -> {
-                        ConnectStatus.SUCCESS
+                        controller.notifyCharacteristicValue(notifyUUIDFilter, true)
+                        _mode.value = ControlMode.STOP
+                        _status.value = ConnectStatus.SUCCESS
                     }
                     LeConnectStatus.CONNECT_ERROR -> {
-                        ConnectStatus.CONNECT_ERROR
+                        controller.notifyCharacteristicValue(notifyUUIDFilter, false)
+                        _mode.value = ControlMode.ERROR
+                        _status.value = ConnectStatus.CONNECT_ERROR
                     }
                     LeConnectStatus.OPERATION_ERROR,
                     LeConnectStatus.CHARACTERISTIC_FILTER_ERROR -> {
-                        ConnectStatus.VERIFICATION_FAILED
+                        controller.notifyCharacteristicValue(notifyUUIDFilter, false)
+                        _mode.value = ControlMode.ERROR
+                        _status.value = ConnectStatus.VERIFICATION_FAILED
                     }
                 }
+                toastMsg(appContext.getString(_status.value.label))
             }
         }
 
@@ -215,8 +291,12 @@ class MRRA private constructor(context: Context) {
                 ) {
                     runCatching {
                         @OptIn(DelicateCoroutinesApi::class)
-                        GlobalScope.launch {
-                            _dataFrame.emit(DataFrame(characteristic.value))
+                        GlobalScope.launch(Dispatchers.IO) {
+                            val frame = DataFrame(characteristic.value)
+                            _dataFrame.emit(frame)
+                            if (_mode.value == ControlMode.MEMORY) {
+                                memoryCache.add(SystemClock.uptimeMillis() to frame)
+                            }
                             errorCount = 0
                         }
                     }.onFailure {

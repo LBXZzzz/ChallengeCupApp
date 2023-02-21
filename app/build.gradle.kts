@@ -50,6 +50,7 @@ dependencies {
     kapt(Dependencies.AndroidX.Room.kapt)
     implementation(Dependencies.AndroidX.Room.runtime)
     implementation(Dependencies.AndroidX.Room.ktx)
+    implementation(Dependencies.AndroidX.DataStore.preference)
     implementation(Dependencies.View.constraintLayout)
     implementation(Dependencies.RikkaX.appCompat)
     implementation(Dependencies.RikkaX.material)

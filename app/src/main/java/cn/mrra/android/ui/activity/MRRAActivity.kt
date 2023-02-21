@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import cn.mrra.android.R
@@ -60,7 +61,17 @@ class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
         super.onNewIntent(intent)
         if (intent != null && intent.action == ACTION_NAVIGATE) {
             val id = intent.getIntExtra("id", 0)
-            // TODO()
+            navController.navigate(
+                id,
+                null,
+                NavOptions.Builder()
+                    .setLaunchSingleTop(true)
+                    .setPopUpTo(
+                        navController.graph.startDestinationId,
+                        inclusive = true,
+                        saveState = false
+                    ).build()
+            )
         }
     }
 

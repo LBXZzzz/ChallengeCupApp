@@ -49,7 +49,7 @@ class DataFrame(val values: ByteArray) {
             return when {
                 isPassive -> ControlMode.PASSIVE
                 isInitiative -> ControlMode.INITIATIVE
-                isMemory -> ControlMode.MEMORY_REAPPEARANCE
+                isMemory -> ControlMode.REAPPEARANCE
                 isStop -> ControlMode.STOP
                 else -> ControlMode.ERROR
             }

@@ -30,7 +30,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_memory_control"
+                        android:id="@+id/tv_memory_start"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_gray_selector"
@@ -71,7 +71,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_memory_reappearance"
+                        android:id="@+id/tv_memory_stop"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_gray_selector"
@@ -79,7 +79,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:paddingVertical="10dp"
-                        android:text="@string/mrra_control_mode_memory_reappearance"
+                        android:text="@string/mrra_control_mode_memory_stop"
                         android:textAllCaps="false"
                         android:textColor="?attr/titleTextColor"
                         android:textSize="18sp"

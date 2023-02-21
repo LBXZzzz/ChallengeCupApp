@@ -11,4 +11,4 @@ private val room by lazy {
     ).build()
 }
 
-val MemoryRecordDatabaseDao by lazy { room.memoryRecordDao() }
+val MemoryRecordDatabase by lazy { room.memoryRecordDao() }

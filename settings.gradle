@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { setUrl("https://jitpack.io") }
         maven {
             setUrl("https://s01.oss.sonatype.org/content/repositories/releases/")
             content {
@@ -22,3 +23,4 @@ rootProject.name = "MRRA"
 include ':app'
 include ':ble'
 include ':common'
+8

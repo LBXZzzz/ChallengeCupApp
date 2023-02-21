@@ -16,15 +16,15 @@ private val localeKey = intPreferencesKey("locale")
 suspend fun Context.loadPreference(): UserPreference {
     return preference.data.first().let {
         UserPreference(
-            darkMode = it[darkModeKey] ?: -1,
-            locale = it[localeKey] ?: -1
+            darkModePolicy = it[darkModeKey] ?: -1,
+            localePolicy = it[localeKey] ?: -1
         )
     }
 }
 
 suspend fun Context.savePreference(userPreference: UserPreference) {
     preference.edit {
-        it[darkModeKey] = userPreference.darkMode
-        it[localeKey] = userPreference.locale
+        it[darkModeKey] = userPreference.darkModePolicy
+        it[localeKey] = userPreference.localePolicy
     }
 }

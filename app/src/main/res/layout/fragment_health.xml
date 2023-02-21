@@ -10,10 +10,169 @@
         app:fitsSystemWindowsInsets="top"
         tools:context=".ui.fragment.HealthFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HealthFragment not yet implemented." />
+        <ScrollView
+            android:id="@+id/sv_product_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fitsSystemWindowsInsets="top"
+            tools:context=".ui.fragment.HealthFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/too_bar_health_return"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/health_title"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </androidx.appcompat.widget.Toolbar>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_health_banner"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:src="@drawable/ic_health_banner_0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.92" />
+
+                    <ImageView
+                        android:id="@+id/iv_health_inquiry"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_health_1"
+                        app:layout_constraintStart_toStartOf="@+id/iv_health_banner"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_banner"
+                        app:layout_constraintWidth_percent="0.44" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_health_2"
+                        app:layout_constraintEnd_toEndOf="@+id/iv_health_banner"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_banner"
+                        app:layout_constraintWidth_percent="0.44" />
+
+                    <ImageView
+                        android:id="@+id/iv_health_training_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_health_record"
+                        app:layout_constraintStart_toStartOf="@+id/iv_health_inquiry"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_inquiry" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/health_training_record"
+                        android:textColor="@color/green_10"
+                        app:layout_constraintStart_toEndOf="@+id/iv_health_training_record"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_inquiry" />
+
+                    <ImageView
+                        android:id="@+id/iv_health_training_calendar"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:src="@drawable/ic_health_0"
+                        app:layout_constraintStart_toStartOf="@id/iv_health_training_record"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_training_record"
+                        app:layout_constraintWidth_percent="0.92" />
+
+                    <ImageView
+                        android:id="@+id/iv_health_course_commendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_health_question_mark"
+                        app:layout_constraintStart_toStartOf="@+id/iv_health_training_calendar"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_training_calendar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/health_training_commend"
+                        android:textColor="@color/green_10"
+                        app:layout_constraintStart_toEndOf="@+id/iv_health_course_commendation"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_training_calendar" />
+
+                    <ImageView
+                        android:id="@+id/iv_health_course"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_health_3"
+                        app:layout_constraintStart_toStartOf="@+id/iv_health_training_calendar"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_training_calendar"
+                        app:layout_constraintWidth_percent="0.44" />
+
+                    <TextView
+                        android:text="上臂专项训练"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray_transparent_80"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:paddingStart="5dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_health_course"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_health_course"
+                        app:layout_constraintWidth_percent="0.44"/>
+                    <ImageView
+                        android:id="@+id/iv_health_course1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_health_4"
+                        app:layout_constraintEnd_toEndOf="@+id/iv_health_training_calendar"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_training_calendar"
+                        app:layout_constraintWidth_percent="0.44" />
+                    <TextView
+
+                        android:text="腕关节专项训练"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray_transparent_80"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:paddingStart="5dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_health_course1"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_health_course1"
+                        app:layout_constraintWidth_percent="0.44"/>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_health_course"
+                        app:layout_constraintWidth_percent="0.92">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="180dp"
+                            android:src="@drawable/ic_health_5" />
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </FrameLayout>
 

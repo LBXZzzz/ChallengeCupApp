@@ -1,113 +1,120 @@
 package cn.mrra.android.ui.activity
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import androidx.lifecycle.lifecycleScope
 import cn.mrra.android.R
-import cn.mrra.android.common.base.SimpleActivity
-import cn.mrra.android.common.startActivity
+import cn.mrra.android.common.base.BaseActivity
+import cn.mrra.android.common.preference.Preference
+import cn.mrra.android.common.preference.UserPreference
 import cn.mrra.android.databinding.ActivitySettingsBinding
+import cn.mrra.android.storage.datastore.savePreference
+import kotlinx.coroutines.launch
 
-class SettingsActivity : SimpleActivity<ActivitySettingsBinding>() {
+class SettingsActivity : BaseActivity<ActivitySettingsBinding, SettingsViewModel>() {
 
     override val layoutId: Int = R.layout.activity_settings
 
-    private lateinit var customaryLang: String
-    private lateinit var currentLang: String
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         with(binding) {
-//            cvSettingEn.alpha = 0.4F
-//            cvSettingCn.alpha = 0.4F
-//
-//            cvSettingEn.setOnClickListener {
-//                if (currentLang == "en") return@setOnClickListener false
-//                runBlocking {
-//                    setLocale(LOCALE_EN)
-//                    saveLocale(LOCALE_EN)
-//                    setHighLight(false)
-//                    false
-//                }
-//            }
-//
-//            cn.setOnClickListener {
-//                if (currentLang == "zh") return@setOnClickListener false
-//                runBlocking {
-//                    setLocale(LOCALE_ZH)
-//                    saveLocale(LOCALE_ZH)
-//                    setHighLight(true)
-//                    false
-//                }
-//            }
-//
-            tvSettingSave.setOnClickListener {
-                startActivity<MRRAActivity>()
+            tvSettingsLangCn.setOnClickListener {
+                viewModel.localePolicy.value = 0
             }
-//
-//            getLocale().let { locale ->
-//                if (locale.language == "zh") {
-//                    customaryLang = "zh"
-//                    setHighLight(true)
-//                } else {
-//                    customaryLang = "en"
-//                    setHighLight(false)
-//                }
-//
-//            }
+
+            tvSettingsLangEn.setOnClickListener {
+                viewModel.localePolicy.value = 1
+            }
+
+            tvSettingsLangFollowSystem.setOnClickListener {
+                viewModel.localePolicy.value = -1
+            }
+
+            tvSettingsModeDarkMode.setOnClickListener {
+                viewModel.darkModePolicy.value = 1
+            }
+
+            tvSettingsModeLightMode.setOnClickListener {
+                viewModel.darkModePolicy.value = 0
+            }
+
+            tvSettingsModeFollowSystem.setOnClickListener {
+                viewModel.darkModePolicy.value = -1
+            }
+
+            lifecycleScope.launch {
+                viewModel.localePolicy.collect { localePolicy ->
+                    when (localePolicy) {
+                        0 -> {
+                            ivSettingsLangCn.visibility = View.VISIBLE
+                            ivSettingsLangEn.visibility = View.GONE
+                            ivSettingsLangFollowSystem.visibility = View.GONE
+                        }
+                        1 -> {
+                            ivSettingsLangCn.visibility = View.GONE
+                            ivSettingsLangEn.visibility = View.VISIBLE
+                            ivSettingsLangFollowSystem.visibility = View.GONE
+                        }
+                        else -> {
+                            ivSettingsLangCn.visibility = View.GONE
+                            ivSettingsLangEn.visibility = View.GONE
+                            ivSettingsLangFollowSystem.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
+
+            lifecycleScope.launch {
+                viewModel.darkModePolicy.collect { darkModePolicy ->
+                    when (darkModePolicy) {
+                        0 -> {
+                            ivSettingsModeDarkMode.visibility = View.GONE
+                            ivSettingsModeLightMode.visibility = View.VISIBLE
+                            ivSettingsModeFollowSystem.visibility = View.GONE
+                        }
+                        1 -> {
+                            ivSettingsModeDarkMode.visibility = View.VISIBLE
+                            ivSettingsModeLightMode.visibility = View.GONE
+                            ivSettingsModeFollowSystem.visibility = View.GONE
+                        }
+                        else -> {
+                            ivSettingsModeDarkMode.visibility = View.GONE
+                            ivSettingsModeLightMode.visibility = View.GONE
+                            ivSettingsModeFollowSystem.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
         }
     }
 
-//    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
-//        return if (keyCode == KeyEvent.KEYCODE_BACK && currentLang != customaryLang) {
-//            AlertDialog.Builder(this)
-//                .setMessage(resources.getString(R.string.setting_change_language))
-//                .setPositiveButton(resources.getString(R.string.setting_change_language_ok)) { _, _ ->
-//                    restartApplication()
-//                }
-//                .setNegativeButton(resources.getString(R.string.setting_change_language_cancel)) { _, _ ->
-//                    setHighLight(customaryLang == "zh")
-//                }
-//                .show()
-//            true
-//        } else {
-//            super.onKeyDown(keyCode, event)
-//        }
-//    }
-//
-//    private fun setHighLight(isCN: Boolean) {
-//        val highlight: CircleView
-//        val formal: CircleView
-//        currentLang = if (isCN) {
-//            highlight = cn
-//            formal = en
-//            "zh"
-//        } else {
-//            highlight = en
-//            formal = cn
-//            "en"
-//        }
-//        highlight.isEnabled = false
-//        formal.isEnabled = true
-//        ObjectAnimator.ofFloat(
-//            highlight,
-//            "alpha",
-//            highlight.alpha,
-//            1F
-//        ).apply {
-//            duration = 200L
-//            setAutoCancel(true)
-//            start()
-//        }
-//        ObjectAnimator.ofFloat(
-//            formal,
-//            "alpha",
-//            formal.alpha,
-//            0.4F
-//        ).apply {
-//            duration = 200L
-//            setAutoCancel(true)
-//            start()
-//        }
-//        highlight.recoverCircleRadius()
-//        formal.reductionCircleRadius()
-//    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK &&
+            (viewModel.originLocalePolicy != viewModel.localePolicy.value ||
+                    viewModel.originDarkModePolicy != viewModel.darkModePolicy.value)
+        ) {
+            AlertDialog.Builder(this)
+                .setMessage(resources.getString(R.string.setting_save_msg))
+                .setPositiveButton(resources.getString(R.string.setting_save_ok)) { _, _ ->
+                    lifecycleScope.launch {
+                        val userPreference = UserPreference(
+                            viewModel.darkModePolicy.value,
+                            viewModel.localePolicy.value
+                        )
+                        Preference.onNewUserPreference(userPreference)
+                        savePreference(userPreference)
+                    }
+                    finish()
+                }
+                .setNegativeButton(resources.getString(R.string.setting_save_cancel)) { _, _ ->
+                    finish()
+                }
+                .show()
+            true
+        } else {
+            super.onKeyDown(keyCode, event)
+        }
+    }
 
 }

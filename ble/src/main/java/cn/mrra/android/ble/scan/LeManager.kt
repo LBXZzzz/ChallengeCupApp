@@ -1,6 +1,7 @@
 package cn.mrra.android.ble.scan
 
 import android.bluetooth.BluetoothManager
+import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
@@ -39,8 +40,6 @@ class LeManager(
     private val bluetoothManager = context.getSystemService<BluetoothManager>()
 
     private val bluetoothAdapter = bluetoothManager!!.adapter
-
-    private val leScanner = bluetoothAdapter.bluetoothLeScanner
 
     private var isBackground: Boolean = true
 
@@ -81,7 +80,7 @@ class LeManager(
      * */
     fun startLeScan() {
         if (!isLeScanning && !isBackground) {
-            leScanner.startScan(
+            bluetoothAdapter.bluetoothLeScanner.startScan(
                 null,
                 ScanSettings.Builder().build(),
                 leScanCallback
@@ -97,36 +96,36 @@ class LeManager(
      * */
     fun stopLeScan() {
         if (isLeScanning) {
-            leScanner.stopScan(leScanCallback)
+            bluetoothAdapter.bluetoothLeScanner.stopScan(leScanCallback)
             isLeScanning = false
         }
     }
 
-    override fun onCreate(owner: LifecycleOwner){
+    override fun onCreate(owner: LifecycleOwner) {
         isBackground = false
     }
 
-    override fun onStart(owner: LifecycleOwner){
+    override fun onStart(owner: LifecycleOwner) {
         isBackground = false
     }
 
     override fun onResume(owner: LifecycleOwner) {
         isBackground = false
-        if (isLeScanning) startLeScan()
+        if (isBluetoothEnabled && isLeScanning) startLeScan()
     }
 
     override fun onPause(owner: LifecycleOwner) {
         isBackground = true
-        if (isLeScanning) stopLeScan()
+        if (isBluetoothEnabled) stopLeScan()
     }
 
-    override fun onStop(owner: LifecycleOwner){
+    override fun onStop(owner: LifecycleOwner) {
         isBackground = true
     }
 
     override fun onDestroy(owner: LifecycleOwner) {
         coroutineScope.cancel()
-        stopLeScan()
+        if (isBluetoothEnabled) stopLeScan()
     }
 
     internal inner class LeScanCallback internal constructor() : ScanCallback() {

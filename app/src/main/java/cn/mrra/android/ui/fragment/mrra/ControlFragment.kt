@@ -6,7 +6,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import cn.mrra.android.R
 import cn.mrra.android.common.base.SimpleFragment
-import cn.mrra.android.common.toastMsg
 import cn.mrra.android.databinding.FragmentControlBinding
 import cn.mrra.android.entity.ConnectStatus
 import cn.mrra.android.entity.ControlMode

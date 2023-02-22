@@ -30,7 +30,7 @@ class DataFrame(val values: ByteArray) {
 
     val p2: Int get() = data[6] + (data[7] shl 8)
 
-    val initMode: Int get() = data[8]
+    val passiveMode: Int get() = data[8]
 
     val stopFlag: Int get() = data[9]
 

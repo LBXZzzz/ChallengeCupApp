@@ -123,7 +123,6 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
         super.onResume()
         if (leManager.isBluetoothEnabled) {
             toastMsg(getString(R.string.scanning), requireContext(), Toast.LENGTH_SHORT)
-            clearResult()
             startLeScan()
         }
     }

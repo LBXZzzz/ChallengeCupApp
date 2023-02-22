@@ -24,6 +24,7 @@ import cn.mrra.android.databinding.ItemConnectionListBinding
 import cn.mrra.android.mrra.MRRA
 import cn.mrra.android.ui.activity.MRRAActivity
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
@@ -61,6 +62,8 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_turning_on)}"
                 }
                 on {
+                    clearResult()
+                    startLeScan()
                     swConnectionSwitch.run {
                         isChecked = true
                         isEnabled = true
@@ -69,7 +72,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_on)}"
                 }
                 turningOff {
-                    adapter.clearResult()
+                    clearResult()
                     swConnectionSwitch.run {
                         isChecked = false
                         isEnabled = false
@@ -78,7 +81,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_turning_off)}"
                 }
                 off {
-                    adapter.clearResult()
+                    clearResult()
                     swConnectionSwitch.run {
                         isChecked = false
                         isEnabled = true
@@ -87,7 +90,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
                         "${getString(R.string.bluetooth)} : ${getString(R.string.status_off)}"
                 }
                 error {
-                    adapter.clearResult()
+                    clearResult()
                     swConnectionSwitch.run {
                         isChecked = true
                         isEnabled = true
@@ -111,8 +114,7 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
             )
             rvConnectionList.adapter = adapter
             srfConnectRefresh.setOnRefreshListener {
-                adapter.clearResult()
-                srfConnectRefresh.isRefreshing = false
+                startLeScan()
             }
         }
     }
@@ -121,7 +123,8 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
         super.onResume()
         if (leManager.isBluetoothEnabled) {
             toastMsg(getString(R.string.scanning), requireContext(), Toast.LENGTH_SHORT)
-            leManager.startLeScan()
+            clearResult()
+            startLeScan()
         }
     }
 
@@ -136,6 +139,21 @@ class ConnectionFragment : SimpleFragment<FragmentConnectionBinding>() {
     override fun onDestroyView() {
         requireContext().unregisterReceiver(leStatusReceiver)
         super.onDestroyView()
+    }
+
+    private fun clearResult() {
+        if (::adapter.isInitialized) {
+            adapter.clearResult()
+        }
+    }
+
+    private fun startLeScan() {
+        binding.srfConnectRefresh.isRefreshing = true
+        lifecycleScope.launch {
+            delay(500L)
+            leManager.startLeScan()
+            binding.srfConnectRefresh.isRefreshing = false
+        }
     }
 
     @Suppress("MissingPermission")

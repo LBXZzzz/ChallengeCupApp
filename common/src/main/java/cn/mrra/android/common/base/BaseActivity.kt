@@ -56,7 +56,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> :
      * */
     protected abstract fun onActivityCreated(savedInstanceState: Bundle?)
 
-    final override fun onCreate(savedInstanceState: Bundle?) {
+    open override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Preference.appLocaleDelegate.onCreate(this)
         initViewDataBinding()

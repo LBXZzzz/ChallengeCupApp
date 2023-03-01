@@ -34,6 +34,7 @@
             android:id="@+id/tv_consult_title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="  ---------------------  "
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title1"
@@ -98,7 +99,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="照片仅自己和医生可见"
+            android:textColor="@color/gray_transparent_60"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@+id/tv_health1"
             app:layout_constraintTop_toBottomOf="@+id/tv_health1" />
@@ -107,7 +110,7 @@
             android:id="@+id/cd_photo"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp"
             app:layout_constraintStart_toStartOf="@+id/tv_health1"
@@ -129,8 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/bt_login"
-            app:layout_constraintEnd_toEndOf="@+id/bt_login"
+            app:layout_constraintBottom_toTopOf="@+id/bt_consult_consult"
+            app:layout_constraintEnd_toEndOf="@+id/bt_consult_consult"
             app:layout_constraintStart_toStartOf="@+id/cd_health">
 
             <TextView
@@ -154,7 +157,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/bt_login"
+            android:id="@+id/bt_consult_consult"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_gravity="center_horizontal"

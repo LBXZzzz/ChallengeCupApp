@@ -12,7 +12,7 @@ class HealthFragment : SimpleFragment<FragmentHealthBinding>() {
     override val layoutId: Int = R.layout.fragment_health
 
     override fun onFragmentCreated(savedInstanceState: Bundle?) {
-        binding.ivHealthInquiry.setOnClickListener {
+        binding.cvHealth1.setOnClickListener {
             startActivity<ConsultActivity>()
         }
     }

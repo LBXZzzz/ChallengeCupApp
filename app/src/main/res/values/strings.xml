@@ -132,4 +132,7 @@
     <string name="consult_contract3">，Signed by the family members</string>
     <string name="consult_bt">Immediate Consultation</string>
 
+    <string name="consult_chat_toolbar1">Online consultation</string>
+    <string name="consult_chat_toolbar2">You can ask questions to the doctor as many times as you like before the consultation period ends</string>
+    <string name="consult_chat_bt">send</string>
 </resources>

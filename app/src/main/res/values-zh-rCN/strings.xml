@@ -130,4 +130,7 @@
     <string name="consult_contract3">，家医签署</string>
     <string name="consult_bt">立刻咨询</string>
 
+    <string name="consult_chat_toolbar1">在线咨询中</string>
+    <string name="consult_chat_toolbar2">咨询时间结束前可不限次数向医生提问</string>
+    <string name="consult_chat_bt">发送</string>
 </resources>

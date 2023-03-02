@@ -45,7 +45,7 @@
                             android:id="@+id/tv_consult_chat_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="在线咨询中"
+                            android:text="@string/consult_chat_toolbar1"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@id/iv_consult_chat_return"
@@ -54,7 +54,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="咨询时间结束前可不限次数向医生提问"
+                            android:text="@string/consult_chat_toolbar2"
                             android:textColor="@color/white_transparent_60"
                             android:textSize="11sp"
                             app:layout_constraintStart_toStartOf="@id/tv_consult_chat_1"
@@ -240,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@color/light_theme_light_mode"
-                    android:text="发送"
+                    android:text="@string/consult_chat_bt"
                     android:textSize="11sp" />
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

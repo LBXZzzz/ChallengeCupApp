@@ -118,4 +118,16 @@
     <string name="health_title">健康</string>
     <string name="health_training_record">训练记录</string>
     <string name="health_training_commend">课程推荐</string>
+
+    <string name="consult_toolbar_1">①请描述你的情况</string>
+    <string name="consult_toolbar_2">②进入对话</string>
+    <string name="consult_toolbar_3"> ------------------- </string>
+    <string name="consult_hini">为了更好的获得医生帮助，请尽可能详细描述病情</string>
+    <string name="consult_tv1">上传检查报告或患处照片</string>
+    <string name="consult_tv2">照片仅自己和医生可见</string>
+    <string name="consult_contract1">点击立即咨询即同意</string>
+    <string name="consult_contract2">《病例隐私协议》</string>
+    <string name="consult_contract3">，家医签署</string>
+    <string name="consult_bt">立刻咨询</string>
+
 </resources>

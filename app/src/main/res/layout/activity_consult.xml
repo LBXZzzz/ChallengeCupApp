@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="①请描述你的情况"
+            android:text="@string/consult_toolbar_1"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="  ---------------------  "
+            android:text="@string/consult_toolbar_3"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title1"
             app:layout_constraintTop_toTopOf="@+id/tv_consult_title1" />
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:text="②进入对话"
+            android:text="@string/consult_toolbar_2"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title2"
             app:layout_constraintTop_toBottomOf="@+id/too_bar_consult_return" />
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="为了更好的获得医生帮助，请尽可能详细描述病情"
+                android:hint="@string/consult_hini"
                 android:padding="16dp"
                 android:textSize="13sp" />
 
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="上传检查报告或患处照片"
+            android:text="@string/consult_tv1"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/cd_health"
             app:layout_constraintTop_toBottomOf="@+id/cd_health" />
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="照片仅自己和医生可见"
+            android:text="@string/consult_tv2"
             android:textColor="@color/gray_transparent_60"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@+id/tv_health1"
@@ -139,20 +139,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="点击立即咨询即同意"
+                android:text="@string/consult_contract1"
                 android:textSize="11sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="《病例隐私协议》"
+                android:text="@string/consult_contract2"
                 android:textColor="@color/light_theme_light_mode"
                 android:textSize="11sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="，家医签署"
+                android:text="@string/consult_contract3"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -163,8 +163,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="330dp"
             android:background="@drawable/button_consult_shape"
-            android:text="立即咨询"
-            android:textSize="12dp"
+            android:text="@string/consult_bt"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"

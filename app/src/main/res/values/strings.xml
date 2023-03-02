@@ -121,4 +121,15 @@
     <string name="health_training_record">Training record</string>
     <string name="health_training_commend">Training commend</string>
 
+    <string name="consult_toolbar_1">① Describe your situation</string>
+    <string name="consult_toolbar_2">② Enter a conversation</string>
+    <string name="consult_toolbar_3"> ----- </string>
+    <string name="consult_hini">Describe the condition in as much detail as possible in order to get help from your doctor</string>
+    <string name="consult_tv1">Upload examination report or photos of affected area</string>
+    <string name="consult_tv2">The photo is visible only to himself and his doctor</string>
+    <string name="consult_contract1">Click Consult now to agree</string>
+    <string name="consult_contract2">《Case Privacy Agreement》</string>
+    <string name="consult_contract3">，Signed by the family members</string>
+    <string name="consult_bt">Immediate Consultation</string>
+
 </resources>

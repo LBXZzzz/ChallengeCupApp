@@ -95,6 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
                         android:text="王先生  男|30岁"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,6 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
                         android:text="病情描述：描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容"
+                        android:textColor="@color/black"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view_consult_chat"
@@ -193,6 +195,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
                         android:text="你好，您提交的疾病描述已收到\n根据您的描述我建议您采取以下治疗方案\n1.××××××××××××××××××\n2.××××××××××××××××××"
+                        android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -222,7 +225,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:background="@null" />
+                    android:background="@null"
+                    android:textColor="@color/black" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView

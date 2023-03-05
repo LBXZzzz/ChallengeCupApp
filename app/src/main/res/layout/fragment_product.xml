@@ -59,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:text="@string/product_virtual_price"
+                    android:textColor="@color/black"
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_product_money_sign"
                     app:layout_constraintStart_toEndOf="@+id/tv_product_price" />
 
@@ -99,6 +100,7 @@
                     android:background="@drawable/background_ellipse_gray"
                     android:padding="4dp"
                     android:text=">"
+                    android:textColor="@color/black"
                     android:textSize="11sp"
                     app:layout_constraintStart_toEndOf="@+id/tv_product_introduction_service1"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_money_sign" />
@@ -110,6 +112,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/product_name"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_introduction_service" />
@@ -121,6 +124,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/product_introduction"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_name" />
@@ -132,6 +136,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/product_sold"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_product_introduction" />
 
@@ -148,6 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/product_share"
+                    android:textColor="@color/black"
                     android:textSize="11sp"
                     app:layout_constraintEnd_toEndOf="@+id/iv_product_share"
                     app:layout_constraintStart_toStartOf="@+id/iv_product_share"
@@ -167,6 +173,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/product_inventory"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <View
@@ -181,6 +188,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/product_deliver_goods"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <TextView
@@ -189,7 +197,8 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/product_deliver_goods1" />
+                android:text="@string/product_deliver_goods1"
+                android:textColor="@color/black" />
 
             <View
                 android:layout_width="match_parent"
@@ -197,7 +206,7 @@
                 android:layout_marginHorizontal="0dp"
                 android:background="@color/gray_transparent_20" />
 
-            <LinearLayout
+          <!--  <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -215,9 +224,9 @@
                     android:layout_marginTop="1dp"
                     android:text="@string/product_product_Introduction"
                     android:textColor="@color/black_transparent_80" />
-            </LinearLayout>
+            </LinearLayout>-->
 
-            <RelativeLayout
+           <!-- <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
@@ -417,7 +426,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/team_introduction_5"
-                android:textColor="?attr/itemTextColor" />
+                android:textColor="?attr/itemTextColor" />-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -437,6 +446,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/product_support_staff"
+                    android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="@+id/iv_product_service"
                     app:layout_constraintStart_toStartOf="@+id/iv_product_service"
                     app:layout_constraintTop_toBottomOf="@id/iv_product_service" />
@@ -455,6 +465,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/product_shopping_bag"
+                    android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="@+id/iv_product_shopping_bag"
                     app:layout_constraintStart_toStartOf="@+id/iv_product_shopping_bag"
                     app:layout_constraintTop_toBottomOf="@id/iv_product_shopping_bag" />

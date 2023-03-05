@@ -25,6 +25,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="@string/consult_toolbar_1"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/consult_toolbar_3"
+            android:textColor="@color/black"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title1"
             app:layout_constraintTop_toTopOf="@+id/tv_consult_title1" />
@@ -43,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="24dp"
             android:text="@string/consult_toolbar_2"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title2"
@@ -54,6 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
+            android:textColor="@color/black"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +71,7 @@
                 android:background="@null"
                 android:hint="@string/consult_hini"
                 android:padding="16dp"
+                android:textColorHint="@color/gray_transparent_60"
                 android:textSize="13sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_consult_voice"
+                    android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -117,14 +122,11 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_health1"
             app:layout_constraintWidth_percent="0.25">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/white"
-                android:text="+"
-                android:textSize="35sp"
-                app:layout_constraintWidth_percent="0.25" />
+                android:background="@drawable/ic_consult_plus_sign" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
@@ -140,6 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/consult_contract1"
+                android:textColor="@color/black"
                 android:textSize="11sp" />
 
             <TextView
@@ -153,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/consult_contract3"
+                android:textColor="@color/black"
                 android:textSize="11sp" />
         </LinearLayout>
 

@@ -15,42 +15,37 @@ import cn.mrra.android.databinding.FragmentProductBinding
 import com.donkingliang.banner.CustomBanner
 import com.donkingliang.banner.CustomBanner.ViewCreator
 import android.R.array
+import androidx.fragment.app.Fragment
+import cn.mrra.android.common.base.ACTION_FRAGMENT
+import cn.mrra.android.common.base.ACTION_NAVIGATE
+import cn.mrra.android.common.startActivity
+import cn.mrra.android.ui.activity.MRRAActivity
+import cn.mrra.android.ui.fragment.mrra.ControlFragment
 
 
 class ProductFragment : SimpleFragment<FragmentProductBinding>() {
 
     override val layoutId: Int = R.layout.fragment_product
-    private lateinit var mediaController: MediaController
 
     override fun onFragmentCreated(savedInstanceState: Bundle?) {
-        with(binding.vpvProductVideo) {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                setAudioFocusRequest(android.media.AudioManager.AUDIOFOCUS_NONE)
-            }
-            mediaController = MediaController(requireContext())
-            mediaController.setAnchorView(this)
-            setMediaController(mediaController)
-            // setVideoURI(getRawUri(R.raw.video_introduction))
-            setOnCompletionListener {
-                binding.tvProductTip.visibility = android.view.View.VISIBLE
-            }
-            setStartListener(object : SimpleStatusListener() {
-                override fun onStart(player: VideoPlayerView) {
-                    binding.tvProductTip.visibility = android.view.View.GONE
-                }
-            })
-        }
-
-        binding.svProductRoot.setOnScrollChangeListener { _, _, _, _, _ ->
-            mediaController.hide()
-        }
         binding.tvProductVirtualPrice.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
+        binding.cdProductBtConnectProductIntroduction.setOnClickListener {
+
+            startActivity<MRRAActivity>() {
+                action = ACTION_FRAGMENT
+                putExtra("id", R.id.mrra_mrra)
+
+            }
+
+        }
+        binding.cdProductBtConnectUs.setOnClickListener {
+
+        }
         initBanner()
     }
 
 
     override fun onPause() {
-        mediaController.hide()
         super.onPause()
     }
 

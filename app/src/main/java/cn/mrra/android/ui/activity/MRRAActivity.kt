@@ -2,11 +2,13 @@ package cn.mrra.android.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import cn.mrra.android.R
+import cn.mrra.android.common.base.ACTION_FRAGMENT
 import cn.mrra.android.common.base.ACTION_NAVIGATE
 import cn.mrra.android.common.base.SimpleActivity
 import cn.mrra.android.databinding.ActivityMrraBinding
@@ -23,7 +25,7 @@ class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        if (intent != null && intent.action == ACTION_NAVIGATE) {
+        if (intent != null && ((intent.action == ACTION_NAVIGATE) || (intent.action == ACTION_FRAGMENT))) {
             val id = intent.getIntExtra("id", 0)
             navController.navigate(
                 id,

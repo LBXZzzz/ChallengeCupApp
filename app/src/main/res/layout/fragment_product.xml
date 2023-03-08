@@ -109,7 +109,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="16dp"
                                 android:text="@string/product_virtual_price"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/itemTextColor"
                                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_product_money_sign"
                                 app:layout_constraintStart_toEndOf="@+id/tv_product_price" />
 
@@ -162,7 +162,7 @@
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/product_name"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/itemTextColor"
                                 android:textStyle="bold"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_product_introduction_service" />
@@ -174,7 +174,7 @@
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/product_introduction"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/itemTextColor"
                                 android:textStyle="bold"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_product_name" />
@@ -225,7 +225,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="@string/product_inventory"
-                                    android:textColor="@color/black"
+                                    android:textColor="?attr/itemTextColor"
                                     android:textStyle="bold" />
 
                                 <View
@@ -240,7 +240,7 @@
                                     android:layout_marginStart="16dp"
                                     android:layout_marginTop="5dp"
                                     android:text="@string/product_deliver_goods"
-                                    android:textColor="@color/black"
+                                    android:textColor="?attr/itemTextColor"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -595,7 +595,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product_support_staff"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/itemTextColor"
                         app:layout_constraintEnd_toEndOf="@+id/iv_product_service"
                         app:layout_constraintStart_toStartOf="@+id/iv_product_service"
                         app:layout_constraintTop_toBottomOf="@id/iv_product_service" />
@@ -614,7 +614,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product_shopping_bag"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/itemTextColor"
                         app:layout_constraintEnd_toEndOf="@+id/iv_product_shopping_bag"
                         app:layout_constraintStart_toStartOf="@+id/iv_product_shopping_bag"
                         app:layout_constraintTop_toBottomOf="@id/iv_product_shopping_bag" />
@@ -626,7 +626,7 @@
                         android:background="@drawable/background_ellipse_gray"
                         android:padding="8dp"
                         android:text="@string/product_contact_customer_service_to_purchase"
-                        android:textColor="@color/blue_transparent_60"
+                        android:textColor="?attr/itemTextColor"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toStartOf="@id/tv_product_buy1"
                         app:layout_constraintTop_toTopOf="@+id/iv_product_service" />

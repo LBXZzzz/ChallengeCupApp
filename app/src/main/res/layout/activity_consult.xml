@@ -25,7 +25,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="@string/consult_toolbar_1"
-            android:textColor="@color/black"
+            android:textColor="?attr/itemTextColor"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/consult_toolbar_3"
-            android:textColor="@color/black"
+            android:textColor="?attr/itemTextColor"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title1"
             app:layout_constraintTop_toTopOf="@+id/tv_consult_title1" />
@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/consult_toolbar_2"
+            android:textColor="?attr/itemTextColor"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_consult_title1"
             app:layout_constraintStart_toEndOf="@+id/tv_consult_title2"
             app:layout_constraintTop_toBottomOf="@+id/too_bar_consult_return" />
@@ -97,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/consult_tv1"
-            android:textColor="@color/black"
+            android:textColor="?attr/itemTextColor"
             app:layout_constraintStart_toStartOf="@+id/cd_health"
             app:layout_constraintTop_toBottomOf="@+id/cd_health" />
 
@@ -142,7 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/consult_contract1"
-                android:textColor="@color/black"
+                android:textColor="?attr/itemTextColor"
                 android:textSize="11sp" />
 
             <TextView
@@ -156,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/consult_contract3"
-                android:textColor="@color/black"
+                android:textColor="?attr/itemTextColor"
                 android:textSize="11sp" />
         </LinearLayout>
 

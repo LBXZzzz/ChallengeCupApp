@@ -20,6 +20,7 @@ class MRRAActivity : SimpleActivity<ActivityMrraBinding>() {
     private lateinit var navController: NavController
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
         initNav()
     }
 

@@ -186,7 +186,7 @@
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/product_sold"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/itemTextColor"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/tv_product_introduction" />
 
@@ -204,7 +204,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/product_share"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/itemTextColor"
                                 android:textSize="11sp"
                                 app:layout_constraintEnd_toEndOf="@+id/iv_product_share"
                                 app:layout_constraintStart_toStartOf="@+id/iv_product_share"
@@ -250,7 +250,7 @@
                                     android:layout_marginTop="3dp"
                                     android:layout_marginBottom="5dp"
                                     android:text="@string/product_deliver_goods1"
-                                    android:textColor="@color/black" />
+                                    android:textColor="?attr/itemTextColor" />
                             </LinearLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>

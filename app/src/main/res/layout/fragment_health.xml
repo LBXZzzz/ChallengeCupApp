@@ -6,7 +6,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".ui.fragment.HealthFragment">
 
         <ScrollView
@@ -14,8 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbarSize="0dp"
-
-
             tools:context=".ui.fragment.HealthFragment">
 
             <LinearLayout

@@ -28,19 +28,7 @@ class ProductFragment : SimpleFragment<FragmentProductBinding>() {
     override val layoutId: Int = R.layout.fragment_product
 
     override fun onFragmentCreated(savedInstanceState: Bundle?) {
-        binding.tvProductVirtualPrice.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
-        binding.cdProductBtConnectProductIntroduction.setOnClickListener {
-
-            startActivity<MRRAActivity>() {
-                action = ACTION_FRAGMENT
-                putExtra("id", R.id.mrra_mrra)
-
-            }
-
-        }
-        binding.cdProductBtConnectUs.setOnClickListener {
-
-        }
+        binding.tvProductPrice2.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
         initBanner()
     }
 

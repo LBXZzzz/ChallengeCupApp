@@ -213,7 +213,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
-                        android:text="本报告仅由算法结合数据生成，有一定误差。结果仅供参考。康复计划请寻求专业医生建议。"
+                        android:text="结果仅供参考。康复计划请寻求专业医生建议。"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
